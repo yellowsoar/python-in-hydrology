@@ -20,7 +20,8 @@ epub:
 
 distrib:
 	rm -rf dist
-	rsync -a pythonhydro.pdf $(DEST)
+	rsync -a pythonhydro.pdf pythonhydro.html $(DEST)
+	rsync -a images/cover_small.png $(DEST)/images
 	chmod -R o+r $(DEST)/*
 
 clean:
