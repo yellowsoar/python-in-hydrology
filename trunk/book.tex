@@ -4328,6 +4328,149 @@ We can check its mean and covariance.
 \end{verbatim} \afterverb
 We see that generated random variable had mean and covariance close to the specified input. 
 
+
+\section{Kriging}
+Kriging is a widely used method for interpolation in hydrology apart from other areas. The advantage of Kriging over other interpolation method e.g. linear interpolation, radial basis function and  spline etc. is that Kriging methodology provides a way to estimate the parameter of interpolation and also provides the uncertainty in the interpolated values. The Kriging methodology involves two steps: (i) estimation of variogram and fitting a theortical variogram to it, and (ii) performing the interpolation. The empirical variogram reveals many interesesting thing about the data and sampling intervals. It is worthwhile to look into these aspects. So, first we begin by generating different type of synthetic dataset to understand the variogram. The example taken in this are from the book, 'Introduction to Geostatistics' by P. K. Kitanidis. The python library used for Kriging is \verb"ambhas.krige".\\
+
+First, we consider the case when the scale of variability is larger than the scale of sampling. Consider the variable,
+\begin{equation}
+z(x) = cos(2 x/0.001).
+\end{equation}
+Where, $x$ is sampled 100 times from the uniform distribution in the range 0 to 1. Because the \verb"ambhas.krige" library work only on two dimensional data, we will generate one more variable $y$ apart from $x$ and $y$. The value of $y$ will be constant as to mimic only one dimensional effects. The python code to generate the synthetic data is:
+
+\beforeverb \begin{verbatim}
+>>> # import required library
+>>> import numpy as np
+>>> import matplotlib.pyplot as plt
+>>> 
+>>> x = np.random.rand(100) # uniformly distributed x
+>>> y = np.ones(x.shape) 
+>>> z = np.cos(2*np.pi*x/0.001) 
+\end{verbatim} \afterverb
+
+Let us have a look at the generated synthetic data. The resulted plot is shown in Fig. \ref{fig:krige_1}. 
+
+\beforeverb \begin{verbatim}
+>>> plt.clf()
+>>> plt.plot(x,z, 'ro')
+>>> plt.xlabel('x')
+>>> plt.ylabel('z')
+>>> plt.savefig('/home/tomer/svn/python-in-hydrology/images/krige_1.png')
+\end{verbatim} \afterverb
+
+\beforefig
+\begin{figure}[h!]
+  \centering
+    \includegraphics[scale=0.5]{images/krige_1.png}
+  \caption{The variation in $z$ with respect to $x$.}
+   \label{fig:krige_1}
+\end{figure}
+\afterfig
+
+We begin with importing the \verb"ambhas.krige" library. The we use its function Ordinary Kriging which is defined by name \verb"OK" to make an instance of Kriging class. To view the variogram, we use the \verb"variogram" method. There are two types of variogram available, first one is the raw variogram, i.e. the averaging over the data is not performed, second one is averaged over uniform intervals of lag distance. Let us first look how the raw variogram looks like. 
+
+\beforeverb \begin{verbatim}
+>>> from ambhas import krige
+>>> foo = krige.OK(x,y,z)
+>>> D,G = foo.variogram(var_type='scattered')
+>>> 
+>>> plt.clf()
+>>> plt.plot(D,G, '.')
+>>> plt.xlabel('lag distance')
+>>> plt.ylabel('variogram')
+>>> plt.savefig('/home/tomer/svn/python-in-hydrology/images/krige_2.png')
+\end{verbatim} \afterverb
+
+The raw variogarm is shown in Fig. \ref{fig:krige_2}. This variogram is very scattered and does not provide any insight into the behaviour of the data. To look into the behaviour of the data, we use averaged variogram. 
+
+\beforefig
+\begin{figure}[h!]
+  \centering
+    \includegraphics[scale=0.5]{images/krige_2.png}
+  \caption{Raw variogram.}
+   \label{fig:krige_2}
+\end{figure}
+\afterfig
+
+The averaged variogram (or simply called variogram) is estimated by giving the \verb"averaged" as input to the argument \verb"var_type" of \verb"variogram" method. The variogram is shown in Fig. \ref{fig:krige_3}. The variogram looks nearly flat. It means that the behaviour is same at any lag distance, or the variable ($z$) has same variability at any scale. This could happen because of either the variable is like this, or that our sampling is so poor that we are unable to capture the behaviour of variable. 
+
+\beforeverb \begin{verbatim}
+>>> DE, GE = foo.variogram(var_type='averaged', min_lag=0.025)
+>>> 
+>>> plt.clf()
+>>> plt.plot(DE,GE, 'ro')
+>>> plt.xlabel('lag distance')
+>>> plt.ylabel('variogram')
+>>> plt.ylim((0,1))
+>>> plt.savefig('/home/tomer/svn/python-in-hydrology/images/krige_3.png')
+\end{verbatim} \afterverb
+
+\beforefig
+\begin{figure}[!h]
+  \centering
+    \includegraphics[scale=0.5]{images/krige_3.png}
+  \caption{Variogram.}
+   \label{fig:krige_3}
+\end{figure}
+\afterfig
+
+Let us try another variable that has variability at larger scaler than our sampling. We keep the same sampling, and change the variability of the signal in the following way:
+\begin{equation}
+z(x) = cos(2 x/0.25).
+\end{equation}
+
+\beforeverb \begin{verbatim}
+>>> x = np.random.rand(100) # uniformly distributed x
+>>> y = np.ones(x.shape) 
+>>> z = np.cos(2*x/0.25) 
+>>> 
+>>> plt.clf()
+>>> plt.plot(x,z, 'ro')
+>>> plt.xlabel('x')
+>>> plt.ylabel('z')
+>>> plt.savefig('/home/tomer/svn/python-in-hydrology/images/krige_4.png')
+\end{verbatim} \afterverb
+
+Fig. \ref{fig:krige_4} shows the signal. In the figure, we see that data shows a nice patterns. The visibility of patterns come from either the data really has some pattern or the sampling is good enough. As we have seen in last example the raw variogram is very cluttered, so we plot only the averaged variogram. 
+
+\beforefig
+\begin{figure}[h!]
+  \centering
+    \includegraphics[scale=0.5]{images/krige_4.png}
+  \caption{Variogram.}
+   \label{fig:krige_4}
+\end{figure}
+\afterfig
+
+
+\beforeverb \begin{verbatim}
+>>> foo = krige.OK(x,y,z)
+>>> DE,GE = foo.variogram(var_type='averaged', min_lag=0.025)
+>>> 
+>>> plt.clf()
+>>> plt.plot(DE,GE, 'r--o')
+>>> plt.xlabel('lag distance')
+>>> plt.ylabel('variogram')
+>>> plt.ylim((0,1))
+>>> plt.savefig('/home/tomer/svn/python-in-hydrology/images/krige_5.png')
+\end{verbatim} \afterverb
+
+The resulted variogram is shown in Fig. \ref{fig:krige_5}. The variogram shows a clear trend. The variability is increasing as the lag distance is increasing. This means that the variability is higher at larger lag distance i.e. the sampling is good enough to capture the variability in the data. 
+
+\beforefig
+\begin{figure}[h!]
+  \centering
+    \includegraphics[scale=0.5]{images/krige_5.png}
+  \caption{Variogram.}
+   \label{fig:krige_5}
+\end{figure}
+\afterfig
+
+The variogram is stabilising at around lag distance of 0.3. This distance is approximately the correlation length (after this lag distance data shows no relation to each other). 
+
+
+
+
 %\section{PCA}
 %\section{Kalman Filtering}
 
