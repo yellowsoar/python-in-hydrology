@@ -4437,7 +4437,7 @@ Fig. \ref{fig:krige_4} shows the signal. In the figure, we see that data shows a
 \begin{figure}[h!]
   \centering
     \includegraphics[scale=0.5]{images/krige_4.png}
-  \caption{Variogram.}
+  \caption{The variation of $z$ with $x$.}
    \label{fig:krige_4}
 \end{figure}
 \afterfig
@@ -4468,8 +4468,183 @@ The resulted variogram is shown in Fig. \ref{fig:krige_5}. The variogram shows a
 
 The variogram is stabilising at around lag distance of 0.3. This distance is approximately the correlation length (after this lag distance data shows no relation to each other). 
 
+Let us generate one more signal. Fig. \ref{fig:krige_6} shows the signal. The variable ($z$) is showing an increasing trend with the increase in $x$, hence the signal is non-stationary. The variable is also varying rapidly, and any behaviour can not be seen apart from this trend. 
+\beforeverb \begin{verbatim}
+>>> x = np.random.rand(100) # uniformly distributed x
+>>> y = np.ones(x.shape) 
+>>> z = x + 0.2*np.random.randn(len(x))
+>>> 
+>>> plt.clf()
+>>> plt.plot(x,z, 'ro')
+>>> plt.xlabel('x')
+>>> plt.ylabel('z')
+>>> plt.savefig('/home/tomer/svn/python-in-hydrology/images/krige_6.png')
+>>> 
+>>> foo = krige.OK(x,y,z)
+>>> DE, GE = foo.variogram(var_type='averaged', min_lag=0.05)
+>>> 
+>>> plt.clf()
+>>> plt.plot(DE,GE, 'r--o')
+>>> plt.xlabel('lag distance')
+>>> plt.ylabel('variogram')
+>>> plt.ylim(ymin=0)
+>>> plt.savefig('/home/tomer/svn/python-in-hydrology/images/krige_7.png')
+\end{verbatim} \afterverb
 
 
+\beforefig
+\begin{figure}[h!]
+  \centering
+    \includegraphics[scale=0.5]{images/krige_6.png}
+  \caption{The variation of $z$ with $x$.}
+   \label{fig:krige_6}
+\end{figure}
+\afterfig
+
+Let us now estimate its variogram. The variogram is shown in Fig. \ref{fig:krige_7}. The variogram has following two distinct features:
+\begin{itemize}
+\item The variogram is not close to zero at the zero lag distance. \\
+\item The variogram is constantly increasing with the lag distance. \\
+\item The variogram is not stabilizing. \\
+\end{itemize}
+
+\beforefig
+\begin{figure}[h!]
+  \centering
+    \includegraphics[scale=0.5]{images/krige_7.png}
+  \caption{Variogram.}
+   \label{fig:krige_7}
+\end{figure}
+\afterfig
+
+The above three features have the following interpretations:
+
+\begin{itemize}
+\item The sampling of data is at larger scale then the variability of the data. \\
+\item The extent of the data is not enough to capture the variability of the data. \\
+\item The data is non-stationary. \\
+\end{itemize}
+
+We remove the trend in the $z$, and then plot the variogram. The detrended data is shown in Fig. \ref{fig:krige_8} and the variogram is shown in Fig. \ref{fig:krige_9}. Now the data has no trend, since the trend was removed. And the data looks like only random numbers with no trend. The resulted variogram also tells that data has same variability at all lag distance which means that it is behaving randomly. 
+
+\beforeverb \begin{verbatim}
+>>> z = z-x
+>>> 
+>>> plt.clf()
+>>> plt.plot(x,z, 'ro')
+>>> plt.xlabel('x')
+>>> plt.ylabel('z')
+>>> plt.savefig('/home/tomer/svn/python-in-hydrology/images/krige_8.png')
+>>> 
+>>> foo = krige.OK(x,y,z)
+>>> DE, GE = foo.variogram(var_type='averaged', min_lag=0.05)
+>>> 
+>>> plt.clf()
+>>> plt.plot(DE,GE, 'r--o')
+>>> plt.xlabel('lag distance')
+>>> plt.ylabel('variogram')
+>>> plt.ylim(ymin=0)
+>>> plt.savefig('/home/tomer/svn/python-in-hydrology/images/krige_9.png')
+\end{verbatim} \afterverb
+
+\beforefig
+\begin{figure}[h!]
+  \centering
+    \includegraphics[scale=0.5]{images/krige_8.png}
+  \caption{The variation of $z$ with $x$.}
+   \label{fig:krige_8}
+\end{figure}
+\afterfig
+
+\beforefig
+\begin{figure}[h!]
+  \centering
+    \includegraphics[scale=0.5]{images/krige_9.png}
+  \caption{Variogram.}
+   \label{fig:krige_9}
+\end{figure}
+\afterfig
+
+Now let us perform the Krigging on the station data to make the map of variable along with uncertainty estimated. First we estimate the empirical variogram, and then fit a theoretical variogram (spherical in this case) to the data by hit and trial. The empircial and theortical fitted variogram is shown in Fig. \ref{fig:krige_10}. 
+
+\beforeverb \begin{verbatim}
+>>> x = np.array([6.8, 4.3, 5.9, 11.6, 5.5, 10.8, 8.6, 12.6, 14.7, 13.9, 
+...      9.47, 14.3, 8.9, 11.9, 11.75])
+>>> y = np.array([6.4, 5.0, 6.0, 4.9, 2.7, 8.2, 3.9, 6.7, 10.4, 10.9, 5.6, 
+...      11.0, 7.3, 6.7, 10.8])
+>>> z = np.array([10, 11, 12, 9, 12, 8, 10, 8, 6, 6, 
+...      10, 6, 8, 8, 6])
+>>> foo = krige.OK(x,y,z)
+>>> DE, GE = foo.variogram(var_type='averaged', min_lag=0.5)
+>>> 
+>>> model_par = {'nugget':0, 'range':20, 'sill':6}
+>>> 
+>>> lags = np.linspace(0,6)
+>>> G = foo.vario_model(lags, model_par, 'spherical')
+>>> 
+>>> plt.clf()
+>>> plt.plot(DE,GE, 'rs', ms=10)
+>>> plt.plot(lags, G, 'g', lw=3)
+>>> plt.xlabel('lag distance')
+>>> plt.ylabel('variogram')
+>>> plt.ylim(ymin=0)
+>>> plt.savefig('/home/tomer/svn/python-in-hydrology/images/krige_10.png')
+\end{verbatim} \afterverb
+
+\beforefig
+\begin{figure}[h!]
+  \centering
+    \includegraphics[scale=0.5]{images/krige_10.png}
+  \caption{Empirical variogram along with the theoretical fitted variogram.}
+   \label{fig:krige_10}
+\end{figure}
+\afterfig
+
+Now, first we generate the required grid on which data is to be interpolated. This need not to be in grid format, it can be any location. But for mapping purpose, the location in grid format is needed. The \verb"krige" method of \verb"OK" class is used for performing the Krigging. The \verb"krige" method generate two attributed \verb"Zg" and \verb"s2_k" for the Krigged values, and variance respectively. The attributes are one dimensional array, so we need to change their shape to make them two dimensional array for making the map. 
+\beforeverb \begin{verbatim}
+>>> Xg, Yg = np.meshgrid(np.linspace(4,16), np.linspace(2,12))
+>>> foo.krige(Xg, Yg, model_par, 'spherical')
+>>> krig_z = foo.Zg
+>>> var_z = foo.s2_k
+>>> krig_z.shape = 50,50
+>>> var_z.shape = 50,50
+>>> 
+>>> plt.clf()
+>>> plt.pcolor(Xg, Yg, krig_z)
+>>> plt.colorbar()
+>>> plt.xlabel('x')
+>>> plt.ylabel('y')
+>>> plt.savefig('/home/tomer/svn/python-in-hydrology/images/krige_11.png')
+>>> 
+>>> plt.clf()
+>>> plt.pcolor(Xg, Yg, var_z)
+>>> plt.plot(x,y, 'ro', ms=12)
+>>> plt.xlabel('x')
+>>> plt.ylabel('y')
+>>> plt.colorbar()
+>>> plt.savefig('/home/tomer/svn/python-in-hydrology/images/krige_12.png')
+\end{verbatim} \afterverb
+
+Fig. \ref{fig:krige_11} shows the map of the Krigged values. The variance along with the location of the original station is shown in Fig. \ref{fig:krige_12}. It is evident from the figure that near to the stations the variance of the error is low, and it increases when we move away form the stations, and it reaches a very hight value when there is no station in surroundings. 
+
+
+\beforefig
+\begin{figure}[h!]
+  \centering
+    \includegraphics[scale=0.5]{images/krige_11.png}
+  \caption{Map of the Krigged data.}
+   \label{fig:krige_11}
+\end{figure}
+\afterfig
+
+\beforefig
+\begin{figure}[h!]
+  \centering
+    \includegraphics[scale=0.5]{images/krige_12.png}
+  \caption{Variance of the error in Krigged data along with the location of the stations.}
+   \label{fig:krige_12}
+\end{figure}
+\afterfig
 
 %\section{PCA}
 %\section{Kalman Filtering}
