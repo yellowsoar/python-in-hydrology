@@ -40,6 +40,17 @@
 \usepackage{tikz}
 \usepackage{wallpaper}
 \usetikzlibrary{shapes,arrows}
+\definecolor{myred}{cmyk}{0.1,1.0,0.6,0.2}
+\definecolor{myblue}{cmyk}{1.0,0.5,0.0,0.60}
+
+\hypersetup{
+  colorlinks = true,
+  urlcolor = myblue,
+  pdfauthor = {sat kumar},
+  pdfkeywords = {python, hydrology},
+  pdftitle = {Python in Hydrology by S. K. Tomer},
+  pdfpagemode = UseNone
+}
 
 \makeindex
 
@@ -4645,6 +4656,34 @@ Fig. \ref{fig:krige_11} shows the map of the Krigged values. The variance along 
    \label{fig:krige_12}
 \end{figure}
 \afterfig
+
+\section{Bias Correction}
+CDF matching is one of the commonly used approach for bias correction in hydrological data. For a hydrological variable $x$ the method is written as,
+\begin{equation}
+x_{m-adjusted} = F^{-1}_{o-c}\left(F_{m-c} \left(x_{m-p} \right) \right),
+\end{equation}
+where, subscript $m$ is for \emph{model}, $o$ is for observation, $c$ is for current, $p$ is for prediction and $f$ is the CDF. \\
+
+We will make bias correction using the \verb"bias_correction" function of the \verb"ambhas.stats" library. We begin with importing the library. Then we generate some random numbers to apply the bias corrections. We deliberately modify the mean of the modeled variable, so that the bias correction method can be compared. As we can see, the mean of the modeled prediction was 2, while the mean of observed data is approximately 0 before applying bias correction. The mean of the bias adjusted modeled prediction has become approximately 0 after applying the CDF based bias correction. \\
+
+\beforeverb \begin{verbatim}
+>>> import numpy as np
+>>> from ambhas.stats import bias_correction
+>>> oc = np.random.randn(100)
+>>> mc = 2+np.random.randn(100)
+>>> mp = 2+np.random.randn(1000)
+>>> 
+>>> print("mean of observed current is %f"%oc.mean())
+>>> print("mean of modeled current is %f"%mc.mean())
+>>> print("mean of modeled prediction is %f"%mp.mean())
+>>> 
+>>> mp_adjusted = bias_correction(oc, mc, mp)
+>>> print("mean of adjusted modeled prediction is %f"%mp_adjusted.mean())
+mean of observed current is -0.015670
+mean of modeled current is 2.139606
+mean of modeled prediction is 2.039000
+mean of adjusted modeled prediction is -0.109323
+\end{verbatim} \afterverb
 
 %\section{PCA}
 %\section{Kalman Filtering}
