@@ -25,7 +25,7 @@
 % texlive-latex-extra (in Ubuntu)
 
 \usepackage{pslatex}
-\usepackage{url}
+%\usepackage{url}
 \usepackage{fancyhdr}
 \usepackage{graphicx}
 \usepackage{amsmath, amsthm, amssymb} 
@@ -46,6 +46,7 @@
 \hypersetup{
   colorlinks = true,
   urlcolor = myblue,
+  linkcolor = myblue,
   pdfauthor = {sat kumar},
   pdfkeywords = {python, hydrology},
   pdftitle = {Python in Hydrology by S. K. Tomer},
@@ -56,7 +57,7 @@
 
 \title{Python}
 \newcommand{\thetitle}{Python: In Hydrology}
-\newcommand{\theversion}{0.0.0}
+\newcommand{\theversion}{0.1.0}
 
 % these styles get translated in CSS for the HTML version
 \newstyle{a:link}{color:black;}
@@ -167,40 +168,32 @@ Printing history:
 \begin{description}
 
 \item[November 2011:] First edition of {\em Python in Hydrology}.
-
-%\item[August 2007:] Major revision, changed title to
-%{\em How to Think Like a (Python) Programmer}.
-
-%\item[June 2008:] Major revision, changed title to
-%{\em Think Python: How to Think Like
-%a Computer Scientist}.
-
+\item[January 2012:] Added sections on variogram analysis, Kriging, bias correction, and calling external commands from Python. 
+\item[August 2012:] Fully edited the book.
 \end{description}
 
 \vspace{0.2in}
 
-%\begin{flushleft}
-%Green Tea Press       \\
-%9 Washburn Ave \\
-%Needham MA 02492
-%\end{flushleft}
+\begin{flushleft}
+Green Tea Press       \\
+9 Washburn Ave \\
+Needham MA 02492
+\end{flushleft}
 
 Permission is granted to copy, distribute, and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.1 or
 any later version published by the Free Software Foundation; with no
-Invariant Sections, no Front-Cover Texts, and with no Back-Cover Texts.
+Invariant Sections, no Front-Cover Texts, and with no Back-Cover Texts. \\
 
 The GNU Free Documentation License is available from \url{www.gnu.org}
 or by writing to the Free Software Foundation, Inc., 59 Temple Place,
-Suite 330, Boston, MA 02111-1307, USA. 
+Suite 330, Boston, MA 02111-1307, USA. \\ 
 
-The original form of this book is \LaTeX\ source code.  Compiling this
-\LaTeX\ source has the effect of generating a device-independent
-representation of a textbook, which can be converted to other formats
-and printed.
-
-%The \LaTeX\ source for this book is available from
-%\url{http://civil.iisc.ernet.in/~satkumar/}
+The book is originally in the form \LaTeX\ source code. 
+A pdf (portable document format) or ps (post script) format can be obtained 
+by compiling this \LaTeX\ source code. The latest \LaTeX\ source code for the 
+book is available from svn repository hosted at google code 
+\url{http://www.google.code/p/python-in-hydrology/}. 
 
 \vspace{0.2in}
 
@@ -230,11 +223,34 @@ Version \theversion
 
 \section*{History}
 
-I started using Python in July 2010. I was looking for a programming language which is open source, and can combine many codes/modules/software. I came across Python and Perl, though there might be many more options available. I googled the use of Python and Perl in the field of general scientific usage, hydrology, Geographic Information System (GIS), statistics, and somehow found Python to be the language of my need. I do not know if my conclusions about the Python versus Perl were true or not? But I feel happy for Python being my choice, and it is fulfilling my requirements. \\
+I started using Python in July 2010. I was looking for a programming language, 
+which is open source, and is capable of combining many codes/modules/software. 
+I came across Python and Perl, though there might be many more options available. 
+I googled the use of Python and Perl in the field of general scientific usage, 
+hydrology, Geographic Information System (GIS), and statistics etc. 
+I somehow felt Python to be the language of my need. 
+I do not know if my conclusions (in the areas mentioned above) about the Python 
+versus Perl were true or not? But I feel happy for Python being my choice, 
+and it is fulfilling my requirements completely. \\
 
-After using Python for two-three months, I become fond of open source, and started using only open source software, I said good-bye to Windows, ArcGis, MATLAB. And even after one year, I do not miss them. I felt that I should also make a small contribution into the free world. I tried to contribute in few areas, but could not go ahead because of my less knowledge in those areas. After spending extensive one year with Python, I thought to make some contribution into Python world. I wrote few small packages for the Python, and started writing this book. \\
+After using Python for two-three months, I become fond of open source, 
+and started using only open source software, I said good-bye to Windows, 
+ArcGis, and MATLAB etc. And even after one year, I did not miss them. 
+I felt that I should also make a small contribution into the free world. 
+I tried to contribute in few areas, but could not go ahead because of my 
+less knowledge in those areas. After spending extensive one year with Python, 
+I thought to make some contribution into Python world. 
+I wrote few small packages for the Python, and started writing this book. \\
 
-I always have been scared of reading books, especially those having more than 200 pages. I do not remember if I have read any book completely which had more than 200 pages. Though the list of books, that I have read is very small, even for the books which had pages less than 200. I do not like much of the text in the book, and like to learn from examples in the book. I am a student, not a professor, so does not have idea about what students like except my own feeling which I know many of my fellow students do not like. \\
+I always have been scared of reading books, 
+especially those having more than 200 pages. 
+I do not remember if I have read any book completely, 
+which had more than 200 pages. Though the list of books, 
+that I have read is very small, even for the books which had pages less than 200. 
+I do not like much of the text in the book, 
+and like to learn from examples in the book. 
+I am a student, not a professor, so does not have any idea about what students 
+like except my own feeling, which I know many of my fellow students do not like. \\
 
 I hope that you will find this book helpful and enjoyable. \\
 
@@ -244,27 +260,32 @@ I hope that you will find this book helpful and enjoyable. \\
 Sat Kumar Tomer \\
 Bangalore, India\\
 
-Sat Kumar Tomer is a Phd Student in the department of civil engineering at Indian Institute of Science, Bangalore, India.
+Sat Kumar Tomer is a Phd Student in the Department of Civil Engineering at 
+Indian Institute of Science, Bangalore, India.
 
 
 \section*{Acknowledgements}
 
 I am thankful to you for reading the book, and hope to receive feedback from you.
 
-I am thankful to Allen B. Downey who provided the latex source code of his books, which helped me in formatting the book in better way. Apart from it, he has written a nice history for his book titled `Think Python: How to Think Like a Computer Scientist', which encouraged me for writing this book. And, I \textbf{copied} many sentences from his book, mainly the basic about Python. 
+I am thankful to Allen B. Downey who provided the latex source code of his books, 
+which helped me in formatting the book in a better way. Apart from it, 
+he has written a nice history for his book titled `Think Python: How to Think Like
+a Computer Scientist', which encouraged me for writing this book. 
+And, I \textbf{copied} many sentences from his book, mainly the basic about Python. \\
 
-I am thankful to the Free Software Foundation for developing the GNU Free Documentation License.
+I am thankful to the Free Software Foundation for developing the 
+GNU Free Documentation License. \\
 
-I am thankful to Green Tea Press.
+I am thankful to Green Tea Press. \\
 
-I am thankful to my friends Aditya Singh, Ganjendara Yadav, Himanshu Joshi, Katarina Turcekova, Shadi Davarian, and Shobhit Khatyan, for their continuous support.
+I am thankful to my friends Aditya Singh, Ganjendara Yadav, 
+Himanshu Joshi, Katarina Turcekova, Shadi Davarian, and Shobhit Khatyan 
+for their continuous support. \\
 
-\section*{Contributor List}
-
-If you have a suggestion or correction, please send email to \url{satkumartomer@gmail.com}.  If I make a change based on your feedback, I will add you to the contributor list (unless you ask to be omitted).
-
-If you include at least part of the sentence the error appears in, that makes it easy for me to search.  Page and section numbers are fine, too, but not quite as easy to work with.
-Thanks!
+\section*{Suggestions/corrections}
+If you have a suggestion or correction, you are more than 
+welcome to drop an email at \url{satkumartomer@gmail.com}. \\
 
 
 \normalsize
@@ -287,35 +308,64 @@ Thanks!
 \chapter{Getting started}
 
 \section{Why Python?}
-Python is a simple and powerful programming language. By simple I mean, that it is much more forgiving than languages like C though slow also. By powerful, I mean it can glue many existing code which were written in C, C++, Fortran etc. easily. This has a growing user community which makes many tools easily available. Python Package Index which is a major host of the Python code, has more than 15,000 packages listed, which speaks about it popularity. Use of Python in hydrology community is not so fast as compared to other field, but now a days many new hydrological packages are being developed. Python provides access to a nice combination of GIS tools, Mathematics, Statistics etc., which make it a useful language for the hydrologist. Following are the major advantages of Python for the hydrologist:
+Python is a simple and powerful programming language. 
+By simple I mean, that it is much more forgiving than languages like 
+C though slow also. By powerful, I mean it can glue many existing codes,  
+which were written in C, C++, Fortran etc. easily. 
+It has a growing user community, which makes many tools easily available. 
+Python Package Index, which is a major host of the Python code, 
+has more than 15,000 packages listed as of now, speaks about it popularity. 
+The use of Python in hydrology community is not so fast as compared to other field, 
+but now-a-days many new hydrological packages are being developed. 
+Python provides access to a nice combination of GIS tools, Mathematics, 
+and Statistics etc., which makes it a useful language for the hydrologist. 
+Following are the major advantages of Python for the hydrologist:
 \begin{enumerate}
 \item A clear and readable syntax. \
 \item Modules can be easily written in C, C++. \
 \item It can be used on all major platforms (Windows, Linux/Unix, Mac etc.) \
 \item Easy to learn. \
-\item And it is free. \
+\item And, it is free. \
 \end{enumerate}
 
+\index{Why Python}
+
 \section{Python Installation}
-Usually all the Linux/Unix system has Python by-default. If it is not there, or for non-linux/unix users, the basic version of Python can be downloaded by following the instructions provided below. The basic Python version includes minimal packages required to run the python, and some other additional packages. For most of the hydrological applications, these packages are not enough, and we require additional packages. In the next section, I will be describing how to install additional packages. Throughout the book, the chevron (\verb">>>") represents the Python shell, and {\verb" $"} represents the Unix/Linux shell or window's command line. The installation of Python for the various operating system is done in the following way. 
+Usually all the Linux/Unix system has basic Python installed by-default. If you are in
+some other platform (Windows or Mac), or for some reason your Linux/Unix do not have 
+a basic version of Python installed, you can use the below instructions to install the 
+basic version of Python depending upon on your platform.  
+The basic version of Python includes minimal packages required to run the python. 
+Often additional packages are required to do the required tasks, specially for most 
+of the hydrological applications, the basic version of python is not enough, 
+and additional packages are must. The next section will describe the installation 
+procedure for required additional packages. 
+Throughout the book, the chevron (\verb">>>") represents the Python shell, 
+and {\verb" $"} represents the Unix/Linux shell or window's command line. 
+The installation of Python for the various operating system is done in the 
+following ways
 
 \index{Install Python}
 
 \subsection{Ubuntu/Debian}
-In the Ubunt/Debian, the Python is installed by running the usual installation command, i.e.:
+In the Ubuntu/Debian, the Python is installed by running the usual installation command, i.e.:
 \beforeverb
 \begin{verbatim}
 $ sudo apt-get install python
 \end{verbatim}
 \afterverb
 
+\index{apt-get}
+
 \subsection{Fedora}
-On Fedora, the installation of the Python is performed in the following way.
+On Fedora, the installation of the Python is performed by using the following command:
 \beforeverb
 \begin{verbatim}
 $ sudo yum install python
 \end{verbatim}
 \afterverb
+
+\index{yum}
 
 \subsection{FreeBSD}
 Python is installed on FreeBSD by running:
@@ -324,13 +374,20 @@ Python is installed on FreeBSD by running:
 $ sudo pkg_add install python
 \end{verbatim}
 \afterverb
-The Linux user might be familiar with \verb"sudo". It allows user to run programs with the security privileges of root or administrator. Window user can ignore \verb"sudo", as they do not need to specify this. \\
+\index{pkg_add}
+
+The Linux user might be familiar with \verb"sudo". 
+It allows user to run programs with the security privileges of root or administrator. 
+Window user may ignore \verb"sudo", as they do not need to specify this. \\
 
 \subsection{Windows}
-For Windows users, the suitable version of Python can be downloaded from \url{http://www.python.org/getit/}. It provides a .msi file, which can be easily installed by double clicking on it.
+For Windows users, the suitable version of Python can be downloaded 
+from \url{http://www.python.org/getit/}. 
+It provides a .msi file, which can be easily installed by double clicking on it. \\
 
 \subsection{Mac OS}
-Mac OS users also can download a suitable version of Python from \url{http://www.python.org/getit/} and install it.
+Mac OS users also can download a suitable version of Python from 
+\url{http://www.python.org/getit/} and install it.
 
 \index{Fedora}
 \index{Ubuntu/Debian}
@@ -338,32 +395,48 @@ Mac OS users also can download a suitable version of Python from \url{http://www
 \index{Windows}
 \index{Mac OS}
 
-\section{Install additional packages}
+\section{Install Additional Packages}
 \label{install}
-Pip is a useful program to install additional packages in Python. Before installing pip, \verb"distribute" should be installed. To do so, first we need to download \verb"Distribute", which is done by downloading \verb"distribute_setup.py" file from \url{http://python-distribute.org/distribute\_setup.py}, and running the following command:
+Pip is a useful program to install additional packages in Python, which provides an 
+easiest way to install additional packages. 
+Before installing pip, \verb"distribute" should be installed. 
+To do so, first we need to download \verb"Distribute", 
+which is done by downloading \verb"distribute_setup.py" file from 
+\url{http://python-distribute.org/distribute\_setup.py}, 
+and running the following command:
 \beforeverb
 \begin{verbatim}
 $ sudo python distribute_setup.py
 \end{verbatim}
 \afterverb
+Note again for Windows users the \verb"sudo" is not needed, and you can use the command
+without using it. \\
 
-\index{Install packages}
+\index{Install additional packages}
 
-Now download the \verb"get-pip.py" from \url{https://github.com/pypa/pip/raw/master/contrib/get-pip.py}, and run as root:
+Now download the \verb"get-pip.py" from 
+\url{https://github.com/pypa/pip/raw/master/contrib/get-pip.py}, and run as root:
 \beforeverb
 \begin{verbatim}
 $ sudo python get-pip.py
 \end{verbatim}
 \afterverb
 
-Note, that the \verb"distribute_setup.py" and \verb"get-pip.py" should be in your current working directory while installing, otherwise give the full path name of file. If you did not get any error in this procedure, \verb"pip" should be ready to install new packages. The procedure to install packages is simple e.g. suppose you want to install package \verb"SomePackage", then run the following command:
+Note, that the \verb"distribute_setup.py" and \verb"get-pip.py" should be in 
+your current working directory while installing, otherwise give the full path 
+name of file. If you did not get any error in this procedure, \verb"pip" should 
+be ready to install new packages. The procedure to install packages is simple, let's say
+we want to install package \verb"SomePackage", then we need to run the following command:
 \beforeverb
 \begin{verbatim}
 $ sudo pip install SomePackage
 \end{verbatim}
 \afterverb
 
-In hydrology, frequently used packages are \verb"Numpy", \verb"Scipy", \verb"xlrd", \verb"xlwt", and \verb"gdal", so these should be installed at this stage. Later whenever a new package/library will be needed, instructions to download them will be given there. 
+In hydrology, frequently used packages are \verb"Numpy", \verb"Scipy", \verb"xlrd", 
+\verb"xlwt", and \verb"gdal", so we will install all of them at this stage. 
+Late, whenever a new package/library will be required, instructions to download and 
+install them will be given there. 
 \beforeverb
 \begin{verbatim}
 $ sudo pip install Numpy
@@ -373,23 +446,34 @@ $ sudo pip install xlwt
 $ sudo pip install gdal
 \end{verbatim}
 \afterverb
-These packages/libraries can be installed by specifying all packages name in one line, i.e. \verb"$ sudo pip install Numpy Scipy xlrd xlwt gdal". But, at this time it is better to install them in seperate line, so that if you get some error, you can easily find out which pakcage is giving error. 
-% $
-Most common problem with \verb"pip" is that, it is not able to download library/package from internet. In that case, you can download \verb"*.tar.gz" library using internet browser, and then run the \verb"pip" in the following way:
+These packages/libraries can be installed by specifying all packages name in one line, 
+i.e. \verb"$ sudo pip install Numpy Scipy xlrd xlwt gdal". 
+But, at this time it is better to install them in separate line, 
+so that if you get some error, you can easily find out which package is giving error.  
+The most common problem with \verb"pip" is that, it is not able to download 
+library/package from internet. It happens mainly when you use some proxy to connect
+to the internet. In that case, we can download the \verb"*.tar.gz" file of the library 
+using internet browser, and then run the \verb"pip" in the following way:
 \beforeverb
 \begin{verbatim}
 $ sudo pip install /path/to/*.tar.gz
 \end{verbatim}
 \afterverb
-Additionally, window user can download \verb"*.exe" or \verb"*.msi" file if available and then download by double clicking it.
+Windows user can download \verb"*.exe" or \verb"*.msi" file if available and then 
+install by double clicking it. \\
 
-If this also fails then, as a last option, you can download \verb"*.tar.gz" file and extract it. Then, go to the folder where you have extracted the file. You should see \verb"setup.py" file there. Now, run the following command:
+If this also fails then, as a last option, you can download \verb"*.tar.gz" file 
+and extract it. Then, go to the folder where you have extracted the file. 
+There, you should see the \verb"setup.py" file. Now, run the following command:
 \beforeverb
 \begin{verbatim}
 $ sudo python setup.py install 
 \end{verbatim}
 \afterverb
-If you see any error in this, which could possibly come because of some dependent package/library is not available in your computer. You should read the \verb"README" file provided with the package, it can give you details of required package/library, and how to install them. \\
+If you see any error in this, which could possibly arise because of non-availability
+of some dependent package/library in your computer. 
+You should read the \verb"README" file provided with the package, 
+it can provide you details of required package/library, and how to install them. \\
 
 The package/libraries are upgraded using the pip in the following way.
 \beforeverb
@@ -400,28 +484,49 @@ $ sudo pip install --upgrade some_package
 \index{Upgrade packages}
 
 \section{Interactive Development Environment}
-Simple text editors can be used to write Python programs, but these do not provide options for easy formatting of text, debugging options etc.  
-IDE (Interactive Development Environment) provides many options to quickly format the program in Python way, and easily debugging them. There are various IDE available for use e.g. PyDev, Spyder, IDLE, and many many others. A list of them can be found at \url{http://wiki.python.org/moin/IntegratedDevelopmentEnvironments}. I am using Spyder for my work, which is similar to MATLAB. The reason to use Spyder was since earlier I used to work on MATLAB, and Spyder is similar to it, and I found myself to be familiar with it. However you can use any IDE, and after being familiar, it doesn't matter which one you use. 
+Simple text editors can be used to write Python programs, but these do not provide 
+options for easy formatting of text, auto completion of text, and debugging options etc.  
+IDE (Interactive Development Environment) provides many options to quickly format 
+the program in Python way, and easily debug them. There are various IDE available 
+for use e.g. PyDev, Spyder, IDLE, and many many others. A list of them can be 
+found at \url{http://wiki.python.org/moin/IntegratedDevelopmentEnvironments}. 
+I am using Spyder for my work, which is similar to MATLAB. The reason to use 
+Spyder was since earlier I used to work on MATLAB, and Spyder is similar to it, 
+so I found myself to be familiar with it. However, you can use any IDE, and after 
+being familiar, it doesn't matter which one you use. 
 \index{IDE}
 
-\section{Execute the program}
-Python is an interpreted language as the programs are executed by an interpreter. There are two ways to use the interpreter: {\bf interactive mode} and {\bf script mode}. In the interactive mode, you type Python programs (after invoking the python, which is done by typing {\verb"python" in a terminal or command window) and interpreter prints the result, e.g. we do \verb"1+1" in it.
+\section{Execute the Program}
+Python is an interpreted language as the programs are executed by an interpreter. 
+There are two ways to use the interpreter: 
+{\bf interactive mode} and {\bf script mode}. 
+In the interactive mode, you type Python programs (after invoking the python, 
+which is done by typing {\verb"python" in a terminal or command window) and 
+interpreter prints the result, e.g. we do \verb"1+1" in it.
 \index{Execute}
 
 \beforeverb
 \begin{verbatim}
+$ python
 >>> 1 + 1
 2
 \end{verbatim}
 \afterverb
+When you invoked Python, you will also see other details like version of Python. \\ 
 
-The chevron, \verb">>>", is the {\bf prompt} which interpreter uses to indicate that it is ready. If you type {\tt 1 + 1}, the interpreter replies {\tt 2}. Alternatively, you can store code in a file and use the interpreter to execute the contents of the file, which is called a {\bf script}.  By convention, Python scripts have names that end with {\tt .py}. Suppose you have named you script as {\tt myscript.py}, and you want to execute it, in a Unix/Linux shell, you would do:
+The chevron, \verb">>>", is the {\bf prompt} which interpreter uses to indicate 
+that it is ready. If you type {\tt 1 + 1}, the interpreter replies {\tt 2}. 
+Alternatively, you can store code in a file and use the interpreter to execute 
+the contents of the file, which is called a {\bf script}.  By convention, Python 
+scripts have names that end with {\tt .pt}. Suppose, you have named you script as 
+{\tt my script.pt}, and you want to execute it, in a Unix/Linux shell, you would do:
 \beforeverb
 \begin{verbatim}
 $ python myscript.py
 \end{verbatim}
 \afterverb
-or, you can give your script executable permission and simply run the script. The syntax to do is:
+or, you can give your script executable permission and simply run the script. 
+The syntax to do is:
 \beforeverb
 \begin{verbatim}
 $ chmod +x myscript.py
@@ -429,46 +534,62 @@ $ ./myscript.py
 \end{verbatim}
 \afterverb
 
-In IDE's, the details of executing scripts are different.  You can find instructions for your environment at the Python website \url{python.org}.
-
-Working in interactive mode is convenient for testing small pieces of code because you can type and execute them immediately.  But for
-anything more than a few lines, you should save your code as a script so you can modify and execute it in the future.
+In KDE's, the details of executing scripts are different.  
+You can find instructions for your environment at the Python website \url{python.org}. \\
 
 
-\section{Type of errors}
-Three kinds of errors can occur in a program: syntax errors, runtime  errors, and semantic errors. It is useful to distinguish between them in order to track them down more quickly.
+Working in interactive mode is convenient for testing small pieces of code because 
+you can type and execute them immediately.  But for anything more than a few lines, 
+you should save your code as a script so you can modify and execute it in the future. \\
+
+
+\section{Type of Errors}
+Three kinds of errors can occur in a program: syntax errors, runtime  errors, and 
+semantic errors. It is useful to distinguish between them in order to track them down 
+more quickly. \\
 \index{Type of errors}
 
-\subsection{Syntax errors}
-Python can only execute a program if the syntax is correct; otherwise, the interpreter displays an error message.
-{\bf Syntax} refers to the structure of a program and the rules about that structure.  
-For example, parentheses have to come in matching pairs, so \verb" (1 + 2) " is legal, but {\tt 8)} is a {\bf syntax error}.
+\subsection{Syntax Errors}
+Python can only execute a program if the syntax is correct; otherwise, the interpreter 
+displays an error message. {\bf Syntax} refers to the structure of a program and the 
+rules about that structure. For example, parentheses have to come in matching pairs, 
+so \verb" (1 + 2) " is legal, but \verb" 8) " is a {\bf syntax error}. \\ 
+\index{Type of errors| Syntax Erros}
 
-\subsection{Runtime errors}
-The second type of error is a runtime error, so called because the error does not appear until after the program has started running. These errors are also called {\bf exceptions} because they usually indicate that something exceptional (and bad) has happened.
+\subsection{Runtime Errors}
+The second type of error is a runtime error, so called because the error does not appear 
+until after the program has started running. These errors are also called {\bf exceptions} 
+because they usually indicate that something exceptional (and bad) has happened. \\
+\index{Type of errors| Runtime Erros}
 
-\subsection{Semantic errors}
-The third type of error is the {\bf semantic error}.  If there is a semantic error in your program, it will run successfully in the sense that the computer will not generate any error messages, but it will not do the right thing.  
+\subsection{Semantic Errors}
+The third type of error is the {\bf semantic error}.  If there is a semantic error in your 
+program, it will run successfully in the sense that the computer will not generate any 
+error messages, but it will not do the right thing. \\
+\index{Type of errors| Semantic Erros}
 
-\section{The first program}
-Traditionally, the first program you write in a new language is called ``Hello, World!'' because all it does is display the words, ``Hello, World!''. In Python, it looks like this:
+\section{The First Program}
+Traditionally, the first program you start with in a new language is ``Hello, World!'' program,
+because all it does is display the words, ``Hello, World!''. In Python, it is done by following
+syntax of codes:
 
 \beforeverb
 \begin{verbatim}
 >>> print 'Hello, World!'
 \end{verbatim}
 \afterverb
-This is an example of a \verb"print" statement, which doesn't actually print anything on paper.  It displays a value on the screen.  In this case, the result is the words:
+This is an example of a \verb"print" statement, which prints on computer screen. 
+In this case, the result is the sentence:
 \beforeverb
 \begin{verbatim}
 Hello, World!
 \end{verbatim}
 \afterverb
-The quotation marks in the program mark the beginning and end of the string.
+The quotation marks in the program mark the beginning and end of the string. \\
+\index{Hello, World program}
 
 
-
-\chapter{A bit of Python}
+\chapter{A Bit of Python}
 Before jumping into application of Python into hydrology, which would involve writing many lines of coding, manipulating arrays, etc. It is better to learn some basics of Python, e.g. the types of data, looping (performing same task many times), and writing functions etc. First thing to know is the type of data. 
 
 \section{Data type}
@@ -1955,7 +2076,7 @@ Now we can use \verb"matplotlib.pyplot" to plot the inflow and outflow. \verb"-*
 Fig. \ref{fig:musk} shows the variation of inflow and outflow with time. The outflow shows a lag with respect to inflow, and the peak in the outflow is slightly lesser than the inflow.
 
 \chapter{Statistics}
-When there is not a clear understanding of the physics process, or the variables required to do physical modelling are not available, then statistics plays a vital role. There are various modules available in python to deal with statistics, the most commonly used is \verb"scipy.stats". Additionally there is one more useful modules \verb"statistics", which can be downloaded from \url{http://bonsai.hgc.jp/~mdehoon/software/python/Statistics/manual/index.xhtml}. \verb"statistics" is not available for download using the \verb"pip", and hence you should download it using internet browser, and then install it using either \verb"pip" or \verb"python setup.py install". 
+When there is not a clear understanding of the physics process, or the variables required to do physical modelling are not available, then statistics plays a vital role. There are various modules available in python to deal with statistics, the most commonly used is \verb"scipy.stats". Additionally there is one more useful modules \verb"statistics", which can be downloaded from \url{http://bonsai.hgc.jp/~mdehoon/software/python/}. \verb"statistics" is not available for download using the \verb"pip", and hence you should download it using internet browser, and then install it using either \verb"pip" or \verb"python setup.py install". 
 
 \section{Empirical distributions}
 Most of hydrological variables are continuous, but because of our measurement capability we measure them discretely. The classification of discrete data using bins, provides mean to treat the discrete data as continuous. Visualization of the underlying distribution of data is done by plotting the Histogram.  The histogram depicts the frequency over discrete intervals (bins). So let us begin with histogram. In the following example, first we will generate some synthetic data, and then compute and plot the histogram. 
@@ -2014,7 +2135,8 @@ Because we are using the same $x$ that was used in previous example, hence we ar
 \end{figure}
 \afterfig
 
-The relative histogram is shown in Fig. \ref{fig:rf}. The relative histogram tells us how experimental data behaves; how many times (or with what probability) the data was in some range. The relative histograms only tell about experimental data, about the data we have. What about the data we are going to get into future? The PDF is a better indicator to say something about the future data. The probability density function (pdf) of a random variable is a function that describes the relative likelihood for this random variable to occur at a given point. The probability for the random variable to fall within a particular region is given by the integral of this variable’s density over the region. The probability density function is non-negative everywhere, and its integral over the entire space is equal to one. We can divide the relative frequency by the bin size, and get the pdf. A simple way to compute pdf is to use \verb"hist" function. \verb"hist" generates the plot, and also returns the value of pdf over each bin. The number of bins are controlled by giving second argument, in the following example it is set at 10. The \verb"bins" provide the lower and upper ranges of the bin, hence its length is one extra than the number of bins. Apart from the color we are specifying alpha value to \verb"hist" function. \verb"alpha" value controls the transparency of the plot; 0.0 means fully transparent and 1.0 is fully opaque. Fig. \ref{fig:pdf} shows the bar plot of the PDF. 
+The relative histogram is shown in Fig. \ref{fig:rf}. The relative histogram tells us how experimental data behaves; how many times (or with what probability) the data was in some range. The relative histograms only tell about experimental data, about the data we have. What about the data we are going to get into future? The PDF is a better indicator to say something about the future data. The probability density function (pdf) of a random variable is a function that describes the relative likelihood for this random variable to occur at a given point. The probability for the random variable to fall within a particular region is given by the integral of this variable’s density over the region. The probability density function is non-negative everywhere, and its integral over the entire space is equal to one. We can divide the relative frequency by the bin size, and get the pdf. A simple way to compute pdf is to use \verb"hist" function. \verb"hist" generates the plot, and also returns the value of pdf over 
+each bin. The number of bins are controlled by giving second argument, in the following example it is set at 10. The \verb"bins" provide the lower and upper ranges of the bin, hence its length is one extra than the number of bins. Apart from the color we are specifying alpha value to \verb"hist" function. \verb"alpha" value controls the transparency of the plot; 0.0 means fully transparent and 1.0 is fully opaque. Fig. \ref{fig:pdf} shows the bar plot of the PDF. 
 \index{PDF}
 \beforeverb \begin{verbatim}
 >>> n, bins, patches = plt.hist(x, 10, normed=1, facecolor='yellow', alpha=0.5)
@@ -2052,7 +2174,8 @@ The cumulative distribution function (CDF) describes the probability that a real
 \end{figure}
 \afterfig
 
-We can use \verb"ECDF" function of the \verb"scikits" library to directly estimate the empirical cumulative distribution function (ECDF). The information about \verb"scikits" is give at \url{http://pypi.python.org/pypi/scikits.statsmodels}. The empirical distribution function (CDF) is the cumulative distribution function associated with the empirical measure of the sample. This cdf is a step function that jumps up by $1/n$ at each of the $n$ data points. The empirical distribution function estimates the underlying cdf of the points in the sample. In the previous example, we have estimated CDF (ECDF) after classifying data into some bins. This means, we assumed that the data behaves in a statistical similar way over some small range. We can estimate CDF without making this assumption also, which would be done using \verb"ECDF" function. The output form \verb"ECDF" function is a object which store the value of data and their corresponding ECDF. The data is retrieved using \verb"ecdf.x" and their corresponding ECDF is retrieved using \verb"ecdf.y". The \verb"ecdf" is the name of variable that you have defined to store the output of \verb"ECDF" function, if you use some other name, you need to use same name to retrieve \verb"x" and \verb"y" attributes. 
+We can use \verb"ECDF" function of the \verb"scikits" library to directly estimate the empirical cumulative distribution function (ECDF). The information about \verb"scikits" is give at \url{http://pypi.python.org/pypi/scikits.statsmodels}. The empirical distribution function (CDF) is the cumulative distribution function associated with the empirical measure of the sample. This cdf is a step function that jumps up by $1/n$ at each of the $n$ data points. The empirical distribution function estimates the underlying cdf of the points in the sample. In the previous example, we have estimated CDF (ECDF) after classifying data into some bins. This means, we assumed that the data behaves in a statistical similar way over some small range. We can estimate CDF without making this assumption also, which would be done using \verb"ECDF" function. The output form \verb"ECDF" function is a object which store the value of data and their corresponding ECDF. The data is retrieved using \verb"ecdf.x" and their corresponding 
+ECDF is retrieved using \verb"ecdf.y". The \verb"ecdf" is the name of variable that you have defined to store the output of \verb"ECDF" function, if you use some other name, you need to use same name to retrieve \verb"x" and \verb"y" attributes. 
 \index{ECDF}
 \beforeverb \begin{verbatim}
 >>> import numpy as np
@@ -2224,7 +2347,8 @@ There are other quiet commonly used distributions in hydrology, e.g. Cauchy, Chi
 \end{figure}
 \afterfig
 
-We generate a number of random variable from some distribution to represent the distribution. To explore the impact of the number of samples on the empirical distribution, we will generate random number from same distribution but with various number of samples, and see how it is effecting the empirical distribution. We will not be using any quantitative measure to check this, as till this stage we have not talked about them, rather we will just visualize graphically. First we will play with normal distribution which is most commonly used distribution. We will use \verb"hist" function of the \verb"matplotlib.pyplot" library to compute the PDF. We are specifying \verb"normed=1" for the \verb"hist" function, which means that the area of histogram should be made equal to one, and which happens to be the PDF. We are also using \verb"plt.axis" to specify the limits of the plot, and we are keeping it same so that we can compare plots easily. The argument for \verb"plt.axis" are $[x_{min}, x_{max}, y_{min}, y_{max}]$.  Fig. \ref{fig:pdf_norm_n} shows the empirical and theoretical PDF for sample equal to 100, 1000, 10,000, and 100,000. It is clear from the figure that as the number of sample are increasing, the empirical distribution is approaching near to theoretical one. At 100 sample, the distribution is represented very poorly by the data, while in other case it is relatively better.  
+We generate a number of random variable from some distribution to represent the distribution. To explore the impact of the number of samples on the empirical distribution, we will generate random number from same distribution but with various number of samples, and see how it is effecting the empirical distribution. We will not be using any quantitative measure to check this, as till this stage we have not talked about them, rather we will just visualize graphically. First we will play with normal distribution which is most commonly used distribution. We will use \verb"hist" function of the \verb"matplotlib.pyplot" library to compute the PDF. We are specifying \verb"normed=1" for the \verb"hist" function, which means that the area of histogram should be made equal to one, and which happens to be the PDF. We are also using \verb"plt.axis" to specify the limits of the plot, and we are keeping it same so that we can compare plots easily. The argument for \verb"plt.axis" are $[x_{min}, x_{max}, y_{min}, y_{max}]
+$.  Fig. \ref{fig:pdf_norm_n} shows the empirical and theoretical PDF for sample equal to 100, 1000, 10,000, and 100,000. It is clear from the figure that as the number of sample are increasing, the empirical distribution is approaching near to theoretical one. At 100 sample, the distribution is represented very poorly by the data, while in other case it is relatively better.  
 \index{wspace}
 \beforeverb \begin{verbatim}
 >>> import numpy as np
@@ -2354,7 +2478,8 @@ We can also see the effect of the number of sample on the empirical distribution
 \afterfig
 
 \section{The t-test}
-In statistics, we make hypothesis like two different random variable have the same mean, or have equal variance, or they follow same distribution. To test these hypothesis, test statistic is derived, and based on the test statistic, the hypothesis is rejected or accepted. When the test statistic follow a Student's t distribution, the t-test is used to test hypothesis. This test is available in the \verb"scipy.stats" library. Let us first test if the mean of random variable is same as we expected or not. \verb"st.ttest_1samp" function is used for this purpose. We will generate normally distributed random variable having mean equal to 5, and standard deviation equal to 10. And we will test if the mean of this generated random variable is 5 or not. Because we are talking 1000 number of sample, we expect that the mean will be approximately equal to 5 most of the time (but not always). The hypothetis is rejected or accepted based on the p-value. The p-value close to one means that hypothesis is true; a value closer to zero means that the hypothesis is rejected. The significance level ($\alpha$) is used to define the threshold, which is often taken as 0.05 or 0.01. If the p-value is greater than this than we can accept the hypothesis. 
+In statistics, we make hypothesis like two different random variable have the same mean, or have equal variance, or they follow same distribution. To test these hypothesis, test statistic is derived, and based on the test statistic, the hypothesis is rejected or accepted. When the test statistic follow a Student's t distribution, the t-test is used to test hypothesis. This test is available in the \verb"scipy.stats" library. Let us first test if the mean of random variable is same as we expected or not. \verb"st.ttest_1samp" function is used for this purpose. We will generate normally distributed random variable having mean equal to 5, and standard deviation equal to 10. And we will test if the mean of this generated random variable is 5 or not. Because we are talking 1000 number of sample, we expect that the mean will be approximately equal to 5 most of the time (but not always). The hypothetis is rejected or accepted based on the p-value. The p-value close to one means that hypothesis is true; a value 
+closer to zero means that the hypothesis is rejected. The significance level ($\alpha$) is used to define the threshold, which is often taken as 0.05 or 0.01. If the p-value is greater than this than we can accept the hypothesis. 
 \index{T-test}
 \beforeverb \begin{verbatim}
 >>> import scipy.stats as st
@@ -3242,7 +3367,231 @@ Now we compute NDVI, and plot the result using \verb"matshow". In \verb"matshow"
 \end{figure}
 \afterfig
 
-% unsupervised classification
+
+\section{Calling GDAL as External Command}}
+GDAL library provides many useful programs e.g. modifying the coordinate system, resolution and extent of the GIS data, and many more. A complete list of these can be found at \url{http://www.gdal.org/gdal_utilities.html}. In this section we will change the resolution, extent and co-ordinate system of the data. Unfortunately, Python bindings are not available for these programs, so we can not use them as we were using other Python programs. These GDAL's program works in command line mode, and Python provides a way to run external command from the Python. So, we will use this to make use of the power of the GDAL library. Before jumping into the GDAL, we will very briefly see how to run external command from Python. On Linux, we get the list of file in a directory by using the command \verb"ls" and the \verb"ls -al" provides the details of these files/directory also.
+\beforeverb \begin{verbatim}
+>>> from subprocess import call
+>>> dir_list = call(["ls", "-l"])
+>>> print(dir_list)
+-rw-rw-r-- 1 tomer tomer   990 2011-12-21 17:31 auto_corr.py
+-rw-rw-r-- 1 tomer tomer   199 2012-01-20 18:38 call_external.py
+\end{verbatim} \afterverb
+Notice that we are giving the argument to the command as a separate member of the list. This can become confusing as the number of arguments increases. On the linux shell we would have simply written \verb"ls -al", why cant we do in the same way here? Lets try to write it like this.
+\beforeverb \begin{verbatim}
+>>> dir_list = call("ls -al")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/usr/lib/python2.7/dist-packages/spyderlib/widgets/externalshell/startup.py", line 122, in runfile
+    execfile(filename, glbs)
+  File "/home/tomer/svn/python-in-hydrology/codes/call_external.py", line 11, in <module>
+    dir_list = call(["ls -al"])
+  File "/usr/lib/python2.7/subprocess.py", line 493, in call
+    return Popen(*popenargs, **kwargs).wait()
+  File "/usr/lib/python2.7/subprocess.py", line 679, in __init__
+    errread, errwrite)
+  File "/usr/lib/python2.7/subprocess.py", line 1239, in _execute_child
+    raise child_exception
+OSError: [Errno 2] No such file or directory
+\end{verbatim} \afterverb
+Python gives the error in this way. To do so we should tell Python that take the input as we do int Shell, which is done by providing argument \verb"shell = True". Look at the following example.
+\beforeverb \begin{verbatim}
+>>> dir_list = call("ls -al", shell=True)
+>>> print(dir_list)
+-rw-rw-r-- 1 tomer tomer   990 2011-12-21 17:31 auto_corr.py
+-rw-rw-r-- 1 tomer tomer   199 2012-01-20 18:38 call_external.py
+\end{verbatim} \afterverb
+This gives the desired output. This is sufficient to know about \verb"subprocess" module to work with external commands when you need to call GDAL as an external commands. 
+
+
+Let us first change the projection of the data to UTM, then select a subwindow from this image, and finally change the resolution of the data. Let us first see how to do this in command line mode. It is always a good practice to first try your command in shell before using this from within the Python script. We will use the ASTER DEM to work with. The ASTER data is provided in geographical coordinates. I will be using the \verb"ASTGTM_N11E076.tif" image, which is the DEM for the Kabini river basin, South India. The path to this file in my computer is \verb"/home/tomer/berambadi/DEM/ASTGTM_N11E076_dem.tif", replace it with path of your file. First we will see the information of this tif file.
+\beforeverb \begin{verbatim}
+$ gdalinfo /home/tomer/berambadi/DEM/ASTGTM_N11E076_dem.tif
+Warning 1: TIFFReadDirectoryCheckOrder:Invalid TIFF directory; tags are not sorted in ascending order
+Driver: GTiff/GeoTIFF
+Files: /home/tomer/berambadi/DEM/ASTGTM_N11E076_dem.tif
+Size is 3601, 3601
+Coordinate System is:
+GEOGCS["WGS 84",
+    DATUM["WGS_1984",
+        SPHEROID["WGS 84",6378137,298.257223563,
+            AUTHORITY["EPSG","7030"]],
+        AUTHORITY["EPSG","6326"]],
+    PRIMEM["Greenwich",0],
+    UNIT["degree",0.0174532925199433],
+    AUTHORITY["EPSG","4326"]]
+Origin = (75.999861111111116,12.000138888888889)
+Pixel Size = (0.000277777777778,-0.000277777777778)
+Metadata:
+  TIFFTAG_DOCUMENTNAME=created at
+  TIFFTAG_IMAGEDESCRIPTION=SILC TIFF
+  TIFFTAG_SOFTWARE=IDL 6.3, Research Systems, Inc.
+  TIFFTAG_DATETIME=2008:10:28 23:54:25
+  TIFFTAG_XRESOLUTION=100
+  TIFFTAG_YRESOLUTION=100
+  TIFFTAG_RESOLUTIONUNIT=2 (pixels/inch)
+  AREA_OR_POINT=Area
+Image Structure Metadata:
+  INTERLEAVE=BAND
+Corner Coordinates:
+Upper Left  (  75.9998611,  12.0001389) ( 75d59'59.50"E, 12d 0' 0.50"N)
+Lower Left  (  75.9998611,  10.9998611) ( 75d59'59.50"E, 10d59'59.50"N)
+Upper Right (  77.0001389,  12.0001389) ( 77d 0' 0.50"E, 12d 0' 0.50"N)
+Lower Right (  77.0001389,  10.9998611) ( 77d 0' 0.50"E, 10d59'59.50"N)
+Center      (  76.5000000,  11.5000000) ( 76d30' 0.00"E, 11d30' 0.00"N)
+Band 1 Block=3601x1 Type=Int16, ColorInterp=Gray
+\end{verbatim} \afterverb
+Most of the parameters in the output of \verb"gdalinfo" are self explanatory. We will look at the things which are needed for analysis, e.g coordinate system, resolution and the corner coordinates. See the line \verb"AUTHORITY", for which the value is \verb"EPSG,4326". The website \url{http://spatialreference.org/} can be used to see the meaning of all the terms in the output related to georeferencing. For the \verb"EPSG:4326", the webpage is \url{http://spatialreference.org/ref/epsg/4326/} which provides all the details about this projection. If the projection system for the image is well defined it does not matter in which projection it was while projecting in a new system. The resolution of the data is 0.000277 degree and the extent of the data is given in the last lines of the output. \\
+
+The command to change the projection system is:
+\beforeverb \begin{verbatim}
+$ gdalwarp -r lanczos -t_srs '+proj=utm +zone=43 +datum=WGS84' \
+> /home/tomer/berambadi/DEM/ASTGTM_N11E076_dem.tif /home/tomer/berambadi/DEM/temp0.tif
+Warning 1: TIFFReadDirectoryCheckOrder:Invalid TIFF directory; 
+tags are not sorted in ascending order
+Processing input file /home/tomer/berambadi/DEM/ASTGTM_N11E076_dem.tif.
+0...10...20...30...40...50...60...70...80...90...100 - done.
+\end{verbatim} \afterverb
+You can see the information about the projection system of newly created file \verb"temp0.tif" by again issuing the command \verb"gdalinfo". Now let us change take a subwindow over the coordinate (xmin=664000, ymax=1309000, xmax=685000, ymin=1294000) from these data, the command for which is:
+\beforeverb \begin{verbatim}
+$ gdal_translate -a_ullr 664000 1309000 685000 1294000 \
+> -projwin 664000 1309000 685000 1294000 \
+> /home/tomer/berambadi/DEM/temp0.tif /home/tomer/berambadi/DEM/temp1.tif
+Input file size is 3595, 3645
+Computed -srcwin 1807 601 688 492 from projected window.
+0...10...20...30...40...50...60...70...80...90...100 - done.
+\end{verbatim} \afterverb
+Now again you can use the \verb"gdalinfo" to see the imormation of newly created \verb"temp1.tif" file. You will see that the resolution of data is approximately 30m. Lets now make it to 50 m.
+change take a subwindow over the coordinate (xmin=664000, ymax=1309000, xmax=685000, ymin=1294000) from these data. The command for doing this is \verb"gdalwarp", there are two required argument for this: \verb"r" and \verb"-tr". The \verb"r" argument defines the interpolation algorithm and \verb"tr" defines the resolution in horizontal and vertical direction. 
+\beforeverb \begin{verbatim}
+$  gdalwarp -r lanczos -tr 50 50 \
+> /home/tomer/berambadi/DEM/temp1.tif \
+> /home/tomer/berambadi/DEM/dem_50m.tif
+Creating output file that is 210P x 150L.
+Processing input file /home/tomer/berambadi/DEM/temp1.tif.
+0...10...20...30...40...50...60...70...80...90...100 - done.
+\end{verbatim} \afterverb
+Now the information about this final dataset is given as by using the command \verb"gdalinfo":
+\beforeverb \begin{verbatim}
+$ gdalinfo /home/tomer/berambadi/DEM/dem_50m.tif 
+Driver: GTiff/GeoTIFF
+Files: /home/tomer/berambadi/DEM/dem_50m.tif
+Size is 420, 300
+Coordinate System is:
+PROJCS["WGS 84 / UTM zone 43N",
+    GEOGCS["WGS 84",
+        DATUM["WGS_1984",
+            SPHEROID["WGS 84",6378137,298.257223563,
+                AUTHORITY["EPSG","7030"]],
+            AUTHORITY["EPSG","6326"]],
+        PRIMEM["Greenwich",0],
+        UNIT["degree",0.0174532925199433],
+        AUTHORITY["EPSG","4326"]],
+    PROJECTION["Transverse_Mercator"],
+    PARAMETER["latitude_of_origin",0],
+    PARAMETER["central_meridian",75],
+    PARAMETER["scale_factor",0.9996],
+    PARAMETER["false_easting",500000],
+    PARAMETER["false_northing",0],
+    UNIT["metre",1,
+        AUTHORITY["EPSG","9001"]],
+    AUTHORITY["EPSG","32643"]]
+Origin = (664000.000000000000000,1309000.000000000000000)
+Pixel Size = (50.000000000000000,-50.000000000000000)
+Metadata:
+  AREA_OR_POINT=Area
+Image Structure Metadata:
+  INTERLEAVE=BAND
+Corner Coordinates:
+Upper Left  (  664000.000, 1309000.000) ( 76d30'19.72"E, 11d50'14.13"N)
+Lower Left  (  664000.000, 1294000.000) ( 76d30'17.06"E, 11d42' 5.94"N)
+Upper Right (  685000.000, 1309000.000) ( 76d41'53.51"E, 11d50'10.21"N)
+Lower Right (  685000.000, 1294000.000) ( 76d41'50.51"E, 11d42' 2.07"N)
+Center      (  674500.000, 1301500.000) ( 76d36' 5.21"E, 11d46' 8.15"N)
+Band 1 Block=420x9 Type=Int16, ColorInterp=Gray
+\end{verbatim} \afterverb
+This final data has the required UTM coordinate, extend and resolution. 
+
+Let us do all these steps at once in Python. First we will make a string which will be essentially the command to be used at shell. Then we will use \verb"call" function to run it.
+\beforeverb \begin{verbatim}
+>>> # specify file names
+>>> input_file = '/home/tomer/berambadi/DEM/ASTGTM_N11E076_dem.tif'
+>>> temp_file0 = '/home/tomer/berambadi/DEM/temp0.tif'
+>>> temp_file1 = '/home/tomer/berambadi/DEM/temp1.tif'
+>>> out_file = '/home/tomer/berambadi/DEM/dem_50.tif'
+>>> 
+>>> # convert from geographical co-ordinates to UTM zone 43
+>>> shell_command= "gdalwarp -r lanczos -t_srs '+proj=utm +zone=43 +datum=WGS84' %s %s"%(
+... input_file,temp_file0)
+>>> returncode = call(shell_command, shell=True)
+>>>       
+>>> berambadi = ' 664000 1309000 685000 1294000 '
+>>> # cut the area around Berambadi watershed
+>>> shell_command = "gdal_translate -a_ullr %s -projwin %s %s %s"%(berambadi,
+... berambadi, temp_file0, temp_file1)
+>>> returncode = call(SC, shell=True)
+>>>    
+>>> # changing the resolution 
+>>> res = 100
+>>> shell_command= "gdalwarp -r lanczos -tr %s %s %s %s"%(res, res, 
+... temp_file1, out_file)
+>>> returncode = call(SC, shell=True)
+\end{verbatim} \afterverb
+Some of the program of GDAL do not overwrite the existing files, or may create some funny dataset if the file exist with the same name. Hence it is better to make sure that there is no existing file for which file the new data is to be created. 
+
+\section{Unsupervised classification}
+\beforeverb \begin{verbatim}
+>>> from __future__ import division
+>>> from osgeo import gdal
+>>> import matplotlib.pyplot as plt
+>>> from sklearn import cluster
+>>> 
+>>> # read the data
+>>> dataset = gdal.Open('/home/tomer/svn/python-in-hydrology/datas/band1.tif')
+>>> data1 = dataset.GetRasterBand(1).ReadAsArray()
+>>> dataset = None
+>>> 
+>>> dataset = gdal.Open('/home/tomer/svn/python-in-hydrology/datas/band2.tif')
+>>> data2 = dataset.GetRasterBand(1).ReadAsArray()
+>>> dataset = None
+>>> 
+>>> dataset = gdal.Open('/home/tomer/svn/python-in-hydrology/datas/band3.tif')
+>>> data3 = dataset.GetRasterBand(1).ReadAsArray()
+>>> dataset = None
+>>> 
+>>> dataset = gdal.Open('/home/tomer/svn/python-in-hydrology/datas/band4.tif')
+>>> data4 = dataset.GetRasterBand(1).ReadAsArray()
+>>> dataset = None
+>>> 
+>>> data1 = 1.0*data1
+>>> data2 = 1.0*data2
+>>> data3 = 1.0*data3
+>>> data4 = 1.0*data4
+>>> 
+>>> L = 1
+>>> C1 = 1
+>>> G = 2.5
+>>> 
+>>> evi = G*(data3-data2)/(data3+C1*data2+L)
+>>> 
+>>> data = evi.reshape(150*200,1)
+>>> k_means = cluster.KMeans(k=4)
+>>> k_means.fit(data) 
+>>> foo = k_means.labels_.reshape(150, 200)
+>>> 
+>>> plt.contourf(foo,3)
+>>> plt.colorbar()
+>>> plt.savefig('/home/tomer/svn/python-in-hydrology/images/unsupervised.tif')
+\end{verbatim} \afterverb
+
+\beforefig
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=0.5\textwidth]{images/unsupervised.png}
+  \caption{Unsupervised classification.}
+   \label{fig:unsuper}
+\end{figure}
+\afterfig
 
 \chapter{Plotting}
 First problem that we had during the plotting was the font size. We can change the font size by specifying the fontsize method of pyplot, but for this we need to specify everywhere the fontsize. This becomes cumbersome task, especially when you want to make many plots. There is another way to come out of this problem, by updating the \verb"prcParams" method of plt. The updating is done in the following manner. 
@@ -4685,58 +5034,216 @@ mean of modeled prediction is 2.039000
 mean of adjusted modeled prediction is -0.109323
 \end{verbatim} \afterverb
 
-%\section{PCA}
-%\section{Kalman Filtering}
+\section{PCA}
+Principal component analysis (PCA) is a tool to reduce the dimensionality of the data. Sometimes few dimension have significant correlation among each other, which is to say that they share almost the same information, in such case even if we reduce such dimension, almost the same information will be preserved. We will use the \verb"matplotlib.mlap.PCA" to perform the \verb"PCA". First we generate the data and looks at its correlation. 
 
-%\chapter{Time series}
-%\beforeverb
-%\begin{verbatim}
-%scikits.timeseries
-%>>> ts.Date(freq='Q',year=2004,quarter=3)
-%<Q : 2004Q3>
-%>>> ts.Date(freq='D',year=2001,month=1,day=1)
-%<D : 01-Jan-2001>
-%>>> ts.Date('D', datetime=datetime.datetime(2007, 1, 1, 17, 0))
-%<D : 01-Jan-2007>
-%
-%>>> Y = ts.Date('A', year=2007)
-%>>> Y_beg = Y.asfreq('D', relation='START')
-%>>> Y_end = Y.asfreq('D', relation='END')
-%>>> days_in_year = (Y_end - Y_beg + 1)
-%>>> days_in_year
-%365
-%
-%>>> dates = ts.date_array(start_date=ts.Date('M', '2001-01'), length=36)
-%>>> # Accessing a single element with an integer
-%>>> dates[0]
-%<M : Jan-2001>
-%>>> # Accessing a single element with a Date object
-%>>> dates[ts.Date('M', '2002-01')]
-%<M : Jan-2002>
-%>>> # Using a slice to access a single element : the result is a DateArray
-%>>> dates[-1:]
-%DateArray([Dec-2003],
-%          freq='M')
-%>>> # Accessing multiple elements with a list of integers
-%>>> dates[[0, 12, 24]]
-%DateArray([Jan-2001, Jan-2002, Jan-2003],
-%          freq='M')
-%>>> # Accessing multiple elements with a list of Date objects
-%>>> dates[[ts.Date('M', '2002-01'), ts.Date('M', '2003-01')]]
-%DateArray([Jan-2002, Jan-2003],
-%          freq='M')
-%
-%>>> first_date = ts.Date('D', '2009-01-01')
-%>>> series = ts.time_series([1, 2, 3, 4], start_date=first_date)
-%>>> series
-%timeseries([1 2 3 4],
-%   dates = [01-Jan-2009 ... 04-Jan-2009],
-%   freq  = D)
-%\end{verbatim} \afterverb
-%
-%\beforeverb \begin{verbatim}
-%
-%\end{verbatim} \afterverb
+\beforeverb \begin{verbatim}
+>>> import numpy as np
+>>> from matplotlib.mlab import PCA
+>>> import matplotlib.pyplot as plt
+>>> 
+>>> # change the default parameters of the plot
+>>> params = {'text.fontsize': 17}
+>>> plt.rcParams.update(params)
+>>> 
+>>> # let us generate 4 dimensional data set
+>>> mean = 10*np.random.rand(4)
+>>> cov = np.random.rand(4,4)
+>>> data = np.random.multivariate_normal(mean,cov,100)
+>>> names = ['A', 'B', 'C', 'D']
+>>> 
+>>> plt.matshow(np.corrcoef(data.T), vmax=1, vmin=0)
+>>> plt.colorbar(shrink=0.6)
+>>> plt.xticks(range(4), names)
+>>> plt.yticks(range(4), names)
+>>> plt.savefig('/home/tomer/svn/python-in-hydrology/images/pca_correlation.png')
+>>> plt.close()
+\end{verbatim} \afterverb
+Fig. \ref{fig:pca1} shows the correlation among the dimension of the data. The off diagonal correlation is non-zero, it means the PCA can reduce the dimensionality, higher the off-diagonal entries, more PCA will be able to reduce the dimensionality of the data. 
+
+\beforefig
+\begin{figure}[h!]
+  \centering
+    \includegraphics[scale=0.5]{images/pca_correlation.png}
+  \caption{The correlation of the generated data.}
+   \label{fig:pca1}
+\end{figure}
+\afterfig
+ 
+The instance of PCA class is generated as:
+\beforeverb \begin{verbatim}
+>>> foo = PCA(data)
+\end{verbatim} \afterverb
+
+The rescaled data is given by \verb"Y" attributes of PCA instance.
+\beforeverb \begin{verbatim}
+>>> data_new = foo.Y
+\end{verbatim} \afterverb
+
+We can check its correlation. Fig. \ref{fig:pca_2} shows the correlation of the scaled/new data. Off-diagonal element of the correlation matrix are zero, which means the data is orthogonal now. That is why this is also called Empirical Orthogonal Function in hydrology. 
+\beforeverb \begin{verbatim}
+>>> plt.matshow(np.corrcoef(data_new.T), vmax=1, vmin=0)
+>>> plt.colorbar(shrink=0.6)
+>>> plt.xticks(range(4), names)
+>>> plt.yticks(range(4), names)
+>>> plt.savefig('/home/tomer/svn/python-in-hydrology/images/pca_correlation_new.png')
+>>> plt.close()
+\end{verbatim} \afterverb
+
+\beforefig
+\begin{figure}[h!]
+  \centering
+    \includegraphics[scale=0.5]{images/pca_correlation_new.png}
+  \caption{The correlation of the data after performing PCA. All the dimensions are uncorrelated which is expected from the PCA.}
+   \label{fig:pca_2}
+\end{figure}
+\afterfig
+
+We can check the variance explained by each dimension by using the attribute \verb"fracs".
+\beforeverb \begin{verbatim}
+>>> print(foo.fracs)
+[ 0.59376529  0.18604241  0.12759934  0.09259297]
+\end{verbatim} \afterverb
+This tells us that one dimension is only explaining 9 percent of the variation, and we can drop it without loosing much of the data.
+
+\section{Kalman Filtering}
+The Kalman filter is frequently used tool in hydrology, which tries to get the optimal solution of the problem given the variance of the model and observation error. The system which Kalman discrete filter tries to optimize is given by following equations:
+\begin{equation}
+x_{k+1} = Ax_k + Bu_k + w,
+\end{equation}
+where the measurements are given by,
+\begin{equation}
+y_{k+1} = Hx_{k+1} + v
+\end{equation}
+The random variable $w$ and $v$ are the process and measurement noise respectively, and their variance is $Q$ and $R$ respectively. 
+
+\beforeverb \begin{verbatim}
+>>> import numpy as np
+>>> import matplotlib.pyplot as plt
+>>> 
+>>> # change the default parameters of the plot
+>>> params = {'text.fontsize': 25}
+>>> plt.rcParams.update(params)
+>>> 
+>>> # length of the data
+>>> n = 100
+>>> 
+>>> # generate true signal
+>>> A = 0.9
+>>> B = 0.5
+>>> u = 10*np.random.rand(n)
+>>> H = 1.0
+>>> x_true = np.empty(n+1)
+>>> x_true[0] = 15.0 #initial condition
+>>> for k in range(n):
+>>>     x_true[k+1] = A*x_true[k]+ B*u[k] 
+>>> 
+>>> #plt.plot(x_true, '--bs', label='x', lw=2)
+>>> #plt.xlabel('k')
+>>> #plt.legend(loc='best')
+>>> #plt.savefig('/home/tomer/svn/python-in-hydrology/images/kalman0.png')
+>>> #plt.close()
+>>> 
+>>> # generate signal with noise
+>>> Q = 0.5
+>>> R = 5
+>>> x = np.empty(n+1)
+>>> x[0] = x_true[0]
+>>> z = np.empty(n+1)
+>>> z[0] = np.nan
+>>> for k in range(n):
+>>>     # time equation
+>>>     w = np.sqrt(Q)*np.random.randn(1)
+>>>     x[k+1] = A*x[k]+ B*u[k] + w
+>>>     # measurment equation
+>>>     v = np.sqrt(R)*np.random.randn(1)
+>>>     z[k+1] = H*x[k+1] + v
+>>> 
+>>> plt.plot(x_true, 'g', label='x_true', lw=2)
+>>> plt.plot(x, 'b', label='x', lw=2)
+>>> plt.plot(z, 'rs', label='z', lw=2)
+>>> plt.xlabel('k')
+>>> plt.legend(loc='best')
+>>> plt.savefig('/home/tomer/svn/python-in-hydrology/images/kalman1.png')
+>>> plt.close()
+>>>  
+>>> #################### kalman filter #################33
+>>> x_hat = np.empty(n+1)
+>>> x_hat_minus = np.empty(n+1)
+>>> P_minus = np.empty(n+1)
+>>> kalman_gain = np.empty(n+1)
+>>> P = np.empty(n+1)
+>>> kalman_gain[0] = np.nan
+>>> P[0] = np.nan
+>>> # initial guess
+>>> x_hat[0] = 10.0
+>>> P_minus[0] = 1.0
+>>> 
+>>> for k in range(n):
+>>>     # time update
+>>>     x_hat_minus[k+1] = A*x_hat[k] + B*u[k]
+>>>     P_minus[k+1] = A*P_minus[k]*A + Q
+>>>     
+>>>     # measurment update
+>>>     kalman_gain[k+1] = P_minus[k+1]*H/(H*P_minus[k+1]*H+R)
+>>>     x_hat[k+1] = x_hat_minus[k+1] + kalman_gain[k+1]*(z[k+1]-H*x_hat_minus[k+1])
+>>>     P[k+1] = P_minus[k+1] - kalman_gain[k+1]*(H*P_minus[k+1]*H+R)*kalman_gain[k+1]  
+>>> 
+>>> plt.plot(x_true, 'g', label='x_true', lw=2)
+>>> plt.plot(z, 'rs', label='z', lw=2)
+>>> plt.plot(x_hat, 'b', label='x_hat', lw=2)
+>>> plt.xlabel('k')
+>>> plt.legend(loc='best')
+>>> plt.savefig('/home/tomer/svn/python-in-hydrology/images/kalman2.png')
+>>> plt.close()
+>>> 
+>>> fig = plt.figure()
+>>> ax1 = fig.add_subplot(111)
+>>> ax1.plot(kalman_gain, 'r', label='Kalman Gain', lw=10)
+>>> ax1.set_xlabel('k')
+>>> ax1.set_ylabel('Kalman Gain', color='r', weight='bold')
+>>> for tl in ax1.get_yticklabels():
+>>>     tl.set_color('r')
+>>> 
+>>> ax2 = ax1.twinx()
+>>> ax2.plot(P, 'b', label='P', lw=4)
+>>> ax2.set_ylabel('P', color='b', weight='bold')
+>>> for tl in ax2.get_yticklabels():
+>>>     tl.set_color('b')
+>>> 
+>>> #plt.plot(z, 'rs', label='z', lw=2)
+>>> #plt.plot(x_hat, 'b', label='x_hat', lw=2)
+>>> #plt.legend(loc='best')
+>>> plt.savefig('/home/tomer/svn/python-in-hydrology/images/kalman3.png')
+>>> plt.close()
+\end{verbatim} \afterverb
+
+\beforefig
+\begin{figure}[h!]
+  \centering
+    \includegraphics[scale=0.5]{images/kalman1.png}
+  \caption{The correlation of the data after performing PCA. All the dimensions are uncorrelated which is expected from the PCA.}
+   \label{fig:pca_2}
+\end{figure}
+\afterfig
+
+\beforefig
+\begin{figure}[h!]
+  \centering
+    \includegraphics[scale=0.5]{images/kalman2.png}
+  \caption{The correlation of the data after performing PCA. All the dimensions are uncorrelated which is expected from the PCA.}
+   \label{fig:pca_2}
+\end{figure}
+\afterfig
+
+\beforefig
+\begin{figure}[h!]
+  \centering
+    \includegraphics[scale=0.5]{images/kalman3.png}
+  \caption{The correlation of the data after performing PCA. All the dimensions are uncorrelated which is expected from the PCA.}
+   \label{fig:pca_2}
+\end{figure}
+\afterfig
 
 \appendix
 
