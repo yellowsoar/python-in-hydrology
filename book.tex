@@ -554,19 +554,19 @@ Python can only execute a program if the syntax is correct; otherwise, the inter
 displays an error message. {\bf Syntax} refers to the structure of a program and the 
 rules about that structure. For example, parentheses have to come in matching pairs, 
 so \verb" (1 + 2) " is legal, but \verb" 8) " is a {\bf syntax error}. \\ 
-\index{Type of errors| Syntax Erros}
+\index{Type of errors! Syntax Erros}
 
 \subsection{Runtime Errors}
 The second type of error is a runtime error, so called because the error does not appear 
 until after the program has started running. These errors are also called {\bf exceptions} 
 because they usually indicate that something exceptional (and bad) has happened. \\
-\index{Type of errors| Runtime Erros}
+\index{Type of errors! Runtime Erros}
 
 \subsection{Semantic Errors}
 The third type of error is the {\bf semantic error}.  If there is a semantic error in your 
 program, it will run successfully in the sense that the computer will not generate any 
 error messages, but it will not do the right thing. \\
-\index{Type of errors| Semantic Erros}
+\index{Type of errors! Semantic Erros}
 
 \section{The First Program}
 Traditionally, the first program you start with in a new language is ``Hello, World!'' program,
@@ -590,21 +590,33 @@ The quotation marks in the program mark the beginning and end of the string. \\
 
 
 \chapter{A Bit of Python}
-Before jumping into application of Python into hydrology, which would involve writing many lines of coding, manipulating arrays, etc. It is better to learn some basics of Python, e.g. the types of data, looping (performing same task many times), and writing functions etc. First thing to know is the type of data. 
+Before jumping into applications of Python programming language into hydrology, 
+which would involve writing many lines of codes, it is better to first learn some basics 
+of Python, e.g. the types of data, looping (performing same task many times), 
+and writing functions etc. Let's begin with the types of data that we are going to deal
+with. Note that there are few more data types, and you may create your own data type,
+we will not touch on these issues, as they involve more in-depth knowledge of Python. \\ 
 
-\section{Data type}
-There are basically two types of data; numbers and strings. The \verb"type" function returns the type of data.
+\section{Data Types}
+There are basically two types of data in Python: numbers and strings. 
+The \verb"type" function can be used to check the type of data. \\
 \index{Data type}
 
 \subsection{Numbers}
-There are three types of number in Python: integers, floating point and complex numbers. Integers are needed for indexing the arrays (vector, matrix), for counting etc. In Python there is no need to define the variable type a priori, and it is allowed to even change the data type later in the program, wherever needed. 
+There are three types of number in Python: integers, floating point and complex numbers. 
+Integers are needed for indexing the arrays (vector, matrix), and counting etc. 
+In Python there is no need to define the variable types a priori, and you are even allowed to 
+change the data type later in the program, wherever needed. 
 \beforeverb \begin{verbatim}
 >>> a = 5
 >>> type(a)
 <type 'int'>
 \end{verbatim} \afterverb
 
-This means that, the data type is integer. The lines in the program without chevron (\verb">>>") represents the output by the Python. Another most commonly used data type is float. Most of the hydrological variables belongs to this category of data type. 
+This means that, the data type of variable \verb``a'' is integer. 
+The lines in the program without chevron (\verb">>>") represents the output by the Python. 
+Another most commonly used data type is float. Most of the hydrological variables belongs to 
+this category of data type. 
 \beforeverb
 \begin{verbatim}
 >>> b = 7.8
@@ -612,7 +624,8 @@ This means that, the data type is integer. The lines in the program without chev
 <type 'float'>
 \end{verbatim}
 \afterverb
-This means the data type is floating point. Another data type is complex, which is not frequently needed in day to day hydrological life. 
+This tells that the data type is floating point. Another data type is complex, which is not 
+sfrequently needed in day to day hydrological life. 
 \beforeverb
 \begin{verbatim}
 >>> c = 5 + 2j
@@ -620,14 +633,17 @@ This means the data type is floating point. Another data type is complex, which 
 <type 'complex'>
 \end{verbatim}
 \afterverb
-The {\tt c} represents the complex data type.
+The variable {\tt c} represents the complex data type.
+\index{Data Types! Integers}
+\index{Data Types! Float}
+\index{Data Types! Complex}
 
 \subsection{Strings}
-A string is a sequence of characters. There are three way to specify a string.
-\index{Strings}
+A string is a sequence of characters. There are mainly three following way to specify a string.
+\index{Data Types! Strings}
 
-\begin{description}
-\item[single quotes:] The text written inside single quotes is treated as string by Python. 
+\subsubsection{Single Quotes}
+The text written inside single quotes is treated as string by Python. 
 \beforeverb
 \begin{verbatim}
 >>> foo = 'my name is Joe'
@@ -636,7 +652,10 @@ my name is Joe
 \end{verbatim}
 \afterverb
 
-\item[double quotes:] Double quotes are also used to define a string. If single quotes are able to define why is double quotes needed? Let us try to write \verb" What's your name? " using single quotes.
+\subsubsection{Double Quotes}
+Double quotes are also used to define a string. One may ask the question, ``If single quotes 
+are able to define a string, then why are double quotes needed?'' Let's try to write 
+\verb" What's your name? " using single quotes.
 \beforeverb
 \begin{verbatim}
 >>> foo = 'what's your name?'
@@ -646,7 +665,9 @@ File "<stdin>", line 1
 SyntaxError: invalid syntax
 \end{verbatim}
 \afterverb
-This produces SyntaxError. Let us try using double quotes.
+This produces SyntaxError. Because Python did not find pairs of single quotes, and hence 
+Python could not decide which two single quotes to consider for identifying the string. Now,
+let's try defining the same string using double quotes. 
 
 \beforeverb
 \begin{verbatim}
@@ -655,14 +676,23 @@ This produces SyntaxError. Let us try using double quotes.
 what's your name?
 \end{verbatim}
 \afterverb
-Double quotes provide an easy way to define strings which involve single quotes. However, the same task can be performed using single quote also. The same string can be written using single quote only by using the \verb"\" before \verb" ' ". 
+As you might have noticed that double quotes provide an easy way to define strings,
+which involve single quotes. The same task can be performed using single quote also, by
+tellign Python which of the single quote should not be used to identify the begininning
+and ending of the string. The \verb"\" is used befor null single quote. Lets write the same 
+string using single quotes only by using the  before \verb" ' ". 
 \beforeverb \begin{verbatim}
 >>> foo = 'what\'s your name?'
 >>> print(foo)
 what's your name?
 \end{verbatim} \afterverb
 
-\item[triple quotes:]  When the strings spans over more than one line, triples quotes are best to define them. Multi-line strings can also be specified using escape sequence \verb"\n" in single or double quote strings, triple quotes make it easier to write. Triple quotes are useful for other things (making help content for functions) also, which you will read later in the book.
+\subsubsection{Triple Quotes}
+When the strings spans over more than one line, triples quotes are best to define them. 
+Multi-line strings can also be specified using escape sequence \verb"\n" in single or 
+double quote strings, however triple quotes make it easier to write. 
+Triple quotes are also useful for other things (making help content for functions) also, 
+which you will read later in the book.
 \beforeverb
 \begin{verbatim}
 >>> foo = """My name is Sat Kumar.
@@ -673,10 +703,16 @@ I am in PhD
 \end{verbatim}
 \afterverb
 
-\end{description}
+
 
 \section{Data structures}
-Data structures are able to contain more than one data in it. There are four built-in data structures in Python: {\tt list}, {\tt tuple}, {\tt dictionary} and {\tt set}. Apart from these built-in data structure, you can define your own data type also like {\tt numpy.array} defined by {\tt numpy}, which is very useful. I did not feel any need to use the set in hydrology, so I am skipping set here, if you are interested you can learn about it from some other source. 
+Data structures are able to contain more than one data in it. 
+There are four built-in data structures in Python: 
+{\tt list}, {\tt tuple}, {\tt dictionary} and {\tt set}. 
+Apart from these built-in data structure, you can define your own data type also 
+like {\tt numpy.array} defined by {\tt numpy}, which is very useful. 
+I did not feel any need to use the set in hydrology, so I am skipping set here, 
+if you are interested you can learn about it from some other source. 
 \section{Data structures}
 
 \subsection{List}
@@ -4635,7 +4671,7 @@ Now, let us try to simulate ensemble of data using copula. I have written a libr
 
 \beforeverb \begin{verbatim}
 >>> from ambhas.copula import Copula
->>> Copula(x, y, 'frank')
+>>> foo = Copula(x, y, 'frank')
 \end{verbatim} \afterverb
 
 We can get the value of Kendall's tau, and the parameter of Frank copula by attributes \verb"tau" and \verb"theta" respectively. 
