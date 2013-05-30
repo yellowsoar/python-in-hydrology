@@ -625,7 +625,7 @@ this category of data type.
 \end{verbatim}
 \afterverb
 This tells that the data type is floating point. Another data type is complex, which is not 
-sfrequently needed in day to day hydrological life. 
+frequently needed in day to day hydrological life. 
 \beforeverb
 \begin{verbatim}
 >>> c = 5 + 2j
@@ -665,7 +665,7 @@ File "<stdin>", line 1
 SyntaxError: invalid syntax
 \end{verbatim}
 \afterverb
-This produces SyntaxError. Because Python did not find pairs of single quotes, and hence 
+This produces \verb"SyntaxError". Because Python did not find pairs of single quotes, and hence 
 Python could not decide which two single quotes to consider for identifying the string. Now,
 let's try defining the same string using double quotes. 
 
@@ -678,8 +678,8 @@ what's your name?
 \afterverb
 As you might have noticed that double quotes provide an easy way to define strings,
 which involve single quotes. The same task can be performed using single quote also, by
-tellign Python which of the single quote should not be used to identify the begininning
-and ending of the string. The \verb"\" is used befor null single quote. Lets write the same 
+telling Python which of the single quote should not be used to identify the beginning
+and ending of the string. The \verb"\" is used before null single quote. Lets write the same 
 string using single quotes only by using the  before \verb" ' ". 
 \beforeverb \begin{verbatim}
 >>> foo = 'what\'s your name?'
@@ -704,16 +704,15 @@ I am in PhD
 \afterverb
 
 
-
 \section{Data structures}
 Data structures are able to contain more than one data in it. 
 There are four built-in data structures in Python: 
-{\tt list}, {\tt tuple}, {\tt dictionary} and {\tt set}. 
+\verb"list", \verb"tuple", \verb"dictionary" and \verb"set". 
 Apart from these built-in data structure, you can define your own data type also 
-like {\tt numpy.array} defined by {\tt numpy}, which is very useful. 
-I did not feel any need to use the set in hydrology, so I am skipping set here, 
-if you are interested you can learn about it from some other source. 
-\section{Data structures}
+like \verb"numpy.array" defined by \verb"numpy", which is very useful. 
+I did not feel any need to use the \verb"set" in hydrology, so I am skipping \verb"set" here, 
+if you are interested you can learn about it from some other sources. 
+\index{Data structures}
 
 \subsection{List}
 A list is a sequence of items (values). The items in it could belong to any of data type, and could be of different data type in the same list. 
@@ -734,7 +733,7 @@ Bangalore
 \afterverb
 
 \index{Negative indices}
-Negative indices are also allowed in Python. The last item in the list has {\tt -1} indices, similarly second last item has indices of {\tt -2} and so on.
+Negative indices are also allowed in Python. The last item in the list has \verb"-1" indices, similarly second last item has indices of \verb"-2" and so on.
 \beforeverb
 \begin{verbatim}
 >>> a = ['Ram', 'Sita', 'Bangalore', 'Delhi']
@@ -749,7 +748,7 @@ In the list, the indices are only integers. Dictionary has the capability to tak
 \beforeverb \begin{verbatim}
 >>> names = ['Delhi', 'Bangalore', 'Kolkata']
 >>> rainfall = [0, 5, 10]
->>> print(rainfall[ind])
+>>> print(rainfall[1])
 5
 \end{verbatim} \afterverb
 
@@ -762,7 +761,7 @@ Now, let us try this using dictionary.
 The same thing could have been done using list in one line, but dictionary provides a neat and clean way to do this. 
 
 \subsection{Tuple}
-A tuple is a sequence of values, similar to list except that tuples are immutable (their value can not be modified).
+A \verb"tuple" is a sequence of values, similar to the list except that \verb"tuples" are immutable (their value can not be modified).
 \beforeverb \begin{verbatim}
 >>> foo = 5,15,18
 >>> foo[2]
@@ -772,9 +771,9 @@ Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 TypeError: 'tuple' object does not support item assignment
 \end{verbatim} \afterverb
-While trying to modify the items in the tuple, Python issues an error. Tuples are useful there is a need to specify some constants, and to make sure that these constants do not change. The immutable property of tuples ensures that during executions of the program the value of constants will not change. 
+While trying to modify the items in the \verb"tuple", Python issues an error. Tuples are useful, when there is a need to specify some constants, and to make sure that these constants do not change. The immutable property of \verb"tuples" ensures that during executions of the program the value of constants would not change. 
 
-A tuple having only one item is defined by using the \verb" ',' " after this, e.g. :
+A \verb"tuple" having only one item is defined by using the \verb" ',' " after this, e.g. :
 \beforeverb \begin{verbatim}
 >>> foo = 5
 >>> type(foo)
@@ -783,10 +782,10 @@ A tuple having only one item is defined by using the \verb" ',' " after this, e.
 >>> type(foo)
 <type 'tuple'>
 \end{verbatim} \afterverb
-You might have noticed that without using the comma ('), Python does not take it as tuple. 
+You might have noticed that without using the comma ('), Python does not treat the variable as \verb"tuple". 
 
 \subsection{Numpy.array}
-NumericalPython (NumPy) is a library/package written mainly in C programming language, but application programming interface (API) is provided for Python. The library provided \verb"numpy.array" data type, which is very useful in performing mathematical operation on array. It is the type of data, that we would be dealing most of the time. This library is not a part of the standard Python distribution, hence before using this, \verb"NumPy" have to be installed in the system. We can check if \verb"NumPy" is installed in our system or not, by using the following command:
+NumericalPython (NumPy) is a library/package written mainly in C programming language, but application programming interface (API) is provided for Python. The library provides \verb"numpy.array" data type, which is very useful in performing mathematical operations on the arrays. It is the type of data, that we would be dealing most of the time. This library is not a part of the standard Python distribution, hence before using this, \verb"NumPy" have to be installed in the system. We can check if \verb"NumPy" is installed in our system or not, by using the following command:
 \beforeverb \begin{verbatim}
 $ python -c'import numpy'
 \end{verbatim} \afterverb
@@ -800,7 +799,7 @@ Traceback (most recent call last):
 ImportError: No module named numpy
 \end{verbatim} \afterverb
 
-This means, that numpy is not installed in the system. You can install \verb"NumPy" by following the steps provided in the section \ref{install}. The \verb"python -c'import numpy'" is a way to run some simple code without invoking the python. This is useful when you want to do something small, quickly. This is very helpful when you want to check if some package is installed or not in your system. \\
+This means, that \verb"numpy" is not installed in the system. You can install \verb"NumPy" by following the steps provided in the section \ref{install}. The \verb"python -c'import numpy'" is a way to run some simple code without invoking the python. This is useful when you want to do something small, quickly. This is very helpful when you want to check if some package is installed or not in your system. \\
 
 Before using any library, it should be imported into the program. The \verb"import" can be used to import the library. There are three ways to import a complete library or some functions from the library. By importing complete library.
 \beforeverb \begin{verbatim}
