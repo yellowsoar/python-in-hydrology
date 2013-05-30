@@ -24,6 +24,7 @@
 % for some of these packages, you might have to install
 % texlive-latex-extra (in Ubuntu)
 
+\usepackage[utf8]{inputenc}
 \usepackage{pslatex}
 %\usepackage{url}
 \usepackage{fancyhdr}
@@ -303,7 +304,6 @@ welcome to drop an email at \url{satkumartomer@gmail.com}. \\
 
 % START THE BOOK
 \mainmatter
-
 
 \chapter{Getting started}
 
@@ -1584,12 +1584,14 @@ array([ 0.82866532,  0.99558838,  0.58213507,  0.48877906,  0.67700479,
 \end{verbatim}
 \afterverb
 
+
+
 \chapter{Basic applications in Hydrology}
-\section{Introdution}
+\section{Introduction}
 This chapter will provide applications of python in hydrology. Most of the problems given in this chapter are taken from the book titled ``Applied Hydrology" by Chow et al, and for detailed description of them, you should refer to the book. These examples include the equations commonly encountered in the hydrology. I have choose these problems to teach Python by using examples, and additionally in every example we will be learning new things about Python. \\
 
-\section{Water Vapor}
-Approximately, the saturation vapor pressure $(e_s)$ is related to the air temperature $(T)$ by the following equation,
+\section{Water Vapour}
+Approximately, the saturation vapour pressure $(e_s)$ is related to the air temperature $(T)$ by the following equation,
 \begin{equation}
 e_s = 611 \exp\left( \frac{17.27T}{237.3+T} \right),
 \end{equation}
@@ -3629,6 +3631,7 @@ Some of the program of GDAL do not overwrite the existing files, or may create s
 \end{figure}
 \afterfig
 
+
 \chapter{Plotting}
 First problem that we had during the plotting was the font size. We can change the font size by specifying the fontsize method of pyplot, but for this we need to specify everywhere the fontsize. This becomes cumbersome task, especially when you want to make many plots. There is another way to come out of this problem, by updating the \verb"prcParams" method of plt. The updating is done in the following manner. 
 
@@ -4472,7 +4475,7 @@ We use \verb"pickle.dump" to save the data.
 
 \section{Integration}
 \index{Integration}
-Suppose we want to integrate some function and the function can not be integrated analyticall, then we go for numerical integration. To check if our numerical integration shcems is working properly or not, we integrate the function for which analytical solution is available and then we compare our solution. So let us begin with function of one variable. Suppose, we have function $f(x) = x$ to integrate over limit 0 to 10. We know from mathematics that the answer is 50. Let us now try numerical methods about the solution. We will use \verb"integrate" library of \verb"scipy". For simple function we an use \verb"lambad" function instead of \verb"def" to define the function. The function \verb"integrate.quad" perform our task. It returns the integration and error in integration.
+Suppose we want to integrate some function and the function can not be integrated analytical, then we go for numerical integration. To check if our numerical integration schemes is working properly or not, we integrate the function for which analytical solution is available and then we compare our solution. So let us begin with function of one variable. Suppose, we have function $f(x) = x$ to integrate over limit 0 to 10. We know from mathematics that the answer is 50. Let us now try numerical methods about the solution. We will use \verb"integrate" library of \verb"scipy". For simple function we can use \verb"lambda" function instead of \verb"def" to define the function. The function \verb"integrate.quad" perform our task. It returns the integration and error in integration.
 \beforeverb \begin{verbatim}
 >>> from scipy import integrate
 >>> y_fun = lambda x: x
@@ -5297,7 +5300,9 @@ Now, unzip/untar the downloaded *.tar.gz file. If there is \verb"setup.py" file 
 \beforeverb \begin{verbatim}
 >>> sudo python setup.py install
 \end{verbatim} \afterverb
-If this fails, or there is no file, \verb"setup.py" then, you should read either \verb"readme" or \verb"install" file. Atleast one of them will tell, how to install the library. In the case of \verb"basemap" library, we see that some instructions are given in the section, `install' in the file \emph{README}. It says the first we need to install the \verb"geos" library, and says that we can install by going to \verb"geos" sub directory in the \verb"basemap" directory, and issuing the following commands:
+
+
+If this fails, or there is no file, \verb"setup.py" then, you should read either \verb"readme" or \verb"install" file. Atleast one of them will tell, how to install the library. In the case of \verb"basemap" library, we see that some instructions are given in the section, `install' in the file \emph{README}. It says that first we need to install the \verb"geos" library, and says that we can install by going to \verb"geos" sub directory in the \verb"basemap" directory, and issuing the following commands:
 
 \beforeverb \begin{verbatim}
 >>> sudo make
@@ -5309,7 +5314,6 @@ Now, the \verb"geos" library is installed, you can go back to the basemap direct
 \beforeverb \begin{verbatim}
 >>> sudo python setup.py install
 \end{verbatim} \afterverb
-
 
 \printindex
 \end{document}
