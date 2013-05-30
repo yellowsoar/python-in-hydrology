@@ -518,8 +518,8 @@ The chevron, \verb">>>", is the {\bf prompt} which interpreter uses to indicate
 that it is ready. If you type {\tt 1 + 1}, the interpreter replies {\tt 2}. 
 Alternatively, you can store code in a file and use the interpreter to execute 
 the contents of the file, which is called a {\bf script}.  By convention, Python 
-scripts have names that end with {\tt .pt}. Suppose, you have named you script as 
-{\tt my script.pt}, and you want to execute it, in a Unix/Linux shell, you would do:
+scripts have names that end with {\tt .py}. Suppose, you have named you script as 
+{\tt myscript.py}, and you want to execute it, in a Unix/Linux shell, you would do:
 \beforeverb
 \begin{verbatim}
 $ python myscript.py
@@ -554,19 +554,19 @@ Python can only execute a program if the syntax is correct; otherwise, the inter
 displays an error message. {\bf Syntax} refers to the structure of a program and the 
 rules about that structure. For example, parentheses have to come in matching pairs, 
 so \verb" (1 + 2) " is legal, but \verb" 8) " is a {\bf syntax error}. \\ 
-\index{Type of errors! Syntax Erros}
+\index{Type of errors! Syntax Errors}
 
 \subsection{Runtime Errors}
 The second type of error is a runtime error, so called because the error does not appear 
 until after the program has started running. These errors are also called {\bf exceptions} 
 because they usually indicate that something exceptional (and bad) has happened. \\
-\index{Type of errors! Runtime Erros}
+\index{Type of errors! Runtime Errors}
 
 \subsection{Semantic Errors}
 The third type of error is the {\bf semantic error}.  If there is a semantic error in your 
 program, it will run successfully in the sense that the computer will not generate any 
 error messages, but it will not do the right thing. \\
-\index{Type of errors! Semantic Erros}
+\index{Type of errors! Semantic Errors}
 
 \section{The First Program}
 Traditionally, the first program you start with in a new language is ``Hello, World!'' program,
