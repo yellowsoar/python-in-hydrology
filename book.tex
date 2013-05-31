@@ -1624,7 +1624,7 @@ The resulted plot is shown in Fig. \ref{fig:es_t}. This example demonstrates how
 \begin{figure}[h!]
   \centering
     \includegraphics[width=0.5\textwidth]{images/es_t.pdf}
-  \caption{The variation of saturation vapor pressure $(e_s)$ versus temperature $(T)$. }
+  \caption{The variation of saturation vapour pressure $(e_s)$ versus temperature $(T)$. }
   \label{fig:es_t}
 \end{figure}
 \afterfig
@@ -1649,7 +1649,7 @@ In this example we see that `\verb";"' allows us to define many expressions in o
 \index{semicolon (;)}
 
 \section{Rainfall}
-Often, we are given a rainfall recorded by a rain gauge which provides the rainfall depths recorded for successive interval in time, and we want to compute the cumulative rainfall. In this example first we shall create rainfall using the random numbers, and we shall also create time variable having values [0,5,10, ...., 100]. 
+Often, we are given a rainfall recorded by a rain gauge which provides the rainfall depths recorded for successive interval in time, and we want to compute the cumulative rainfall. In this example first we shall create rainfall using the random numbers, and we shall also create time variable having values \verb"[0,5,10, ...., 100]". 
 \beforeverb \begin{verbatim}
 >>> import numpy as np
 >>> time = np.linspace(0,100,21) # create time variable
@@ -1763,7 +1763,7 @@ I prefer to add blank lines after a section of code, and comment on the top of s
  \end{center}
 \end{figure}
 
-The flow chart of preparing contour map is given in Fig. \ref{fig:flowchart}. First, we need to generate the grid with regular spacing having the same extent as of the locations of rainfall gauges. Then, from the given location and rainfall data, we need to compute data at regular grid using some interpolation scheme. After this contour maps can be obtained. The \verb"griddata" function of the \verb"scipy.interpolate" library is useful in obtaining the gridded data (data at regular grid). When we need only one or few functions from the library, it is better to call them explicitly, e.g. \verb"from scipy.interpolate import griddata", like in the following example. We use \verb"meshgrid" function of numpy library, to create the mesh from the given $x$ and $y$ vectors. 
+The flow chart of preparing contour map is given in Fig. \ref{fig:flowchart}. First, we need to generate the grid with regular spacing having the same extent as of the locations of rainfall gauges. Then, from the given location and rainfall data, we need to compute data at regular grid using some interpolation scheme. After this contour maps can be obtained. The \verb"griddata" function of the \verb"scipy.interpolate" library is useful in obtaining the gridded data (data at regular grid). When we need only one or few functions from the library, it is better to call them explicitly, e.g. \verb"from scipy.interpolate import griddata", like in the following example. We use \verb"meshgrid" function of \verb"numpy" library, to create the mesh from the given $x$ and $y$ vectors. 
 
 \beforeverb \begin{verbatim}
 >>> from scipy.interpolate import griddata
@@ -1793,7 +1793,7 @@ Now, we can make the contour plot of the gridded data, which is made by \verb"pl
 \index{xlim}
 \index{ylim}
 
-Fig. \ref{fig:grid_rain} shows the gridded rainfall along with the location of rain gauges. The \verb"gridata" does not perform extrapolation, so the data outside the location of the rain gauges is assigned a value of \verb"nan". There are other function which can be used to extrapolate the data, which would be discussed later. 
+Fig. \ref{fig:grid_rain} shows the gridded rainfall along with the location of rain gauges. The \verb"griddata" does not perform extrapolation, so the data outside the location of the rain gauges is assigned a value of \verb"nan". There are other function which can be used to extrapolate the data, which would be discussed later. 
 
 \beforefig
 \begin{figure}[h!]
@@ -1824,13 +1824,13 @@ where,
 \begin{equation}
 B = \frac{0.622k^2 \rho_a u_2}{p \rho_w \left[\ln (z_2/z_0)\right]^2},
 \end{equation}
-$e_{as}$ is the saturated vapor pressure, $e_a$ is the vapor pressure, $k$ is the von Karnman coefficient, $u_2$ is wind velocity measured at $z_2$ m height, $p$ is the air pressure, and $z_0$ is the roughness height. \\
+$e_{as}$ is the saturated vapour pressure, $e_a$ is the vapour pressure, $k$ is the von Karnman coefficient, $u_2$ is wind velocity measured at $z_2$ m height, $p$ is the air pressure, and $z_0$ is the roughness height. \\
 
 Usually, evaporation is calculated by combining the energy balance and aerodynamic method. In this case the $E$ becomes,
 \begin{equation}
 E = \frac{\Delta}{\Delta + \gamma} E_r + \frac{\gamma}{\Delta + \gamma}E_a,
 \end{equation}
-where, $\Delta$ is the gradient of the saturated vapor pressure curve, and is,
+where, $\Delta$ is the gradient of the saturated vapour pressure curve, and is,
 \begin{equation}
 \Delta = \frac{4098 e_s}{(273.3+T)^2},
 \end{equation}
@@ -1838,13 +1838,13 @@ and, the $\gamma$ is the psychrometric constant, and is defined as,
 \begin{equation}
 \gamma = \frac{C_p K_h p}{0.622 l_v K_w},
 \end{equation}
-$k_h$ and $k_w$ are the heat and vapor diffusivities respectively. \\
+$k_h$ and $k_w$ are the heat and vapour diffusivities respectively. \\
 
-Let us first generate the synthetic data using random numbers. We know that \verb"np.random.rand" provides uniformly distributed random number over an interval of [0,1]. If we want to get the uniformly distributed random number over some other range, say [a,b], we can transform the variable in the following way:
+Let us first generate the synthetic data using random numbers. We know that \verb"np.random.rand" provides uniformly distributed random number over an interval of \verb"[0,1]". If we want to get the uniformly distributed random number over some other range, say \verb"[a,b]", we can transform the variable in the following way:
 \begin{equation}
 x_{new} = a + (b-a)*x_{old},
 \end{equation}
-where, $X_{old}$ is uniformly distributed random variable over [0,1], and $x_{new}$ has the range of [a,b]. The \verb"np.random.randn" gives normally distributed random variables having zero mean and standard deviation equal to one. If we are interested in normally distributed random variable having mean $\mu$ and standard deviation equal to $\sigma$. We can do the following transformation.
+where, $X_{old}$ is uniformly distributed random variable over \verb"[0,1]", and $x_{new}$ has the range of [a,b]. The \verb"np.random.randn" gives normally distributed random variables having zero mean and standard deviation equal to one. If we are interested in normally distributed random variable having mean $\mu$ and standard deviation equal to $\sigma$. We can do the following transformation.
 \begin{equation}
 y_{new} = \mu + \sigma*y_{old},
 \end{equation}
@@ -1891,7 +1891,7 @@ Now, we combine energy balance and aerodynamic method to get improved estimate o
 \end{verbatim} \afterverb
 
 \index{subplot}
-Now, we have got four important variables; evaporation using energy balance method ($E_r$), evaporation using aerodynamics method ($E_a$), combined evaporation ($E$), and the ratio of evaporation from energy balance method by combined method ($Er/E$). We can plot these four variables in four different plot, or we can put them in one figure by making figure into four section. \verb"subplot" is such a function to make figure into subsection. The first argument to \verb"subplot" is the desired number of rows, second argument is the desired numbers of columns in the figure. The third argument is the position of subplot in the figure, which is measured from left to right and top to bottom. 
+Now, we have got four important variables; evaporation using energy balance method ($E_r$), evaporation using aerodynamics method ($E_a$), combined evaporation ($E$), and the ratio of evaporation from energy balance method by combined method ($Er/E$). We can plot these four variables in four different plot, or we can put them in one figure by making figure into four section. \verb"subplot" is such a function to make figure into subsection. The first argument to \verb"subplot" is the desired number of rows, second argument is the desired numbers of columns in the figure. The third argument is the position of \verb"subplot" in the figure, which is measured from left to right and top to bottom. 
 \beforeverb \begin{verbatim}
 >>> plt.clf()
 >>> plt.subplot(2,2,1)
@@ -1916,7 +1916,7 @@ Now, we have got four important variables; evaporation using energy balance meth
 >>> plt.savefig('/home/tomer/articles/python/tex/images/E.png')
 \end{verbatim} \afterverb
 
-The estimated $E_r$, $E_a$, $E$ and $Er/E$ are shown in the Fig. \ref{fig:E}. We have additionally used the argument \verb"axisbg" to define the background color for the subplots. 
+The estimated $E_r$, $E_a$, $E$ and $Er/E$ are shown in the Fig. \ref{fig:E}. We have additionally used the argument \verb"axisbg" to define the background color for the \verb"subplot"s. 
 \beforefig
 \begin{figure}[h!]
   \centering
@@ -1926,7 +1926,7 @@ The estimated $E_r$, $E_a$, $E$ and $Er/E$ are shown in the Fig. \ref{fig:E}. We
 \end{figure}
 \afterfig
 
-In the Fig. \ref{fig:E}, the \verb"ylabel" of subplot 4 is overlapping with the subplot 3. This can be corrected by changing the \verb"wspace". Which is demonstrated below. Fig. \ref{fig:corr_E} shows the improved plot.
+In the Fig. \ref{fig:E}, the \verb"ylabel" of subplot 4 is overlapping with the \verb"subplot 3". This can be corrected by changing the \verb"wspace". Which is demonstrated below. Fig. \ref{fig:corr_E} shows the improved plot.
 \index{wspace}
 \beforeverb
 \begin{verbatim}
@@ -2211,7 +2211,7 @@ The cumulative distribution function (CDF) describes the probability that a real
 \end{figure}
 \afterfig
 
-We can use \verb"ECDF" function of the \verb"scikits" library to directly estimate the empirical cumulative distribution function (ECDF). The information about \verb"scikits" is give at \url{http://pypi.python.org/pypi/scikits.statsmodels}. The empirical distribution function (CDF) is the cumulative distribution function associated with the empirical measure of the sample. This cdf is a step function that jumps up by $1/n$ at each of the $n$ data points. The empirical distribution function estimates the underlying cdf of the points in the sample. In the previous example, we have estimated CDF (ECDF) after classifying data into some bins. This means, we assumed that the data behaves in a statistical similar way over some small range. We can estimate CDF without making this assumption also, which would be done using \verb"ECDF" function. The output form \verb"ECDF" function is a object which store the value of data and their corresponding ECDF. The data is retrieved using \verb"ecdf.x" and their corresponding 
+We can use \verb"ECDF" function of the \verb"scikits" library to directly estimate the empirical cumulative distribution function (ECDF). The information about \verb"scikits" is give at \url{http://pypi.python.org/pypi/scikits.statsmodels}. The empirical distribution function (CDF) is the cumulative distribution function associated with the empirical measure of the sample. This CDF is a step function that jumps up by $1/n$ at each of the $n$ data points. The empirical distribution function estimates the underlying cdf of the points in the sample. In the previous example, we have estimated CDF (ECDF) after classifying data into some bins. This means, we assumed that the data behaves in a statistical similar way over some small range. We can estimate CDF without making this assumption also, which would be done using \verb"ECDF" function. The output form \verb"ECDF" function is a object which store the value of data and their corresponding ECDF. The data is retrieved using \verb"ecdf.x" and their corresponding 
 ECDF is retrieved using \verb"ecdf.y". The \verb"ecdf" is the name of variable that you have defined to store the output of \verb"ECDF" function, if you use some other name, you need to use same name to retrieve \verb"x" and \verb"y" attributes. 
 \index{ECDF}
 \beforeverb \begin{verbatim}
@@ -2515,7 +2515,7 @@ We can also see the effect of the number of sample on the empirical distribution
 \afterfig
 
 \section{The t-test}
-In statistics, we make hypothesis like two different random variable have the same mean, or have equal variance, or they follow same distribution. To test these hypothesis, test statistic is derived, and based on the test statistic, the hypothesis is rejected or accepted. When the test statistic follow a Student's t distribution, the t-test is used to test hypothesis. This test is available in the \verb"scipy.stats" library. Let us first test if the mean of random variable is same as we expected or not. \verb"st.ttest_1samp" function is used for this purpose. We will generate normally distributed random variable having mean equal to 5, and standard deviation equal to 10. And we will test if the mean of this generated random variable is 5 or not. Because we are talking 1000 number of sample, we expect that the mean will be approximately equal to 5 most of the time (but not always). The hypothetis is rejected or accepted based on the p-value. The p-value close to one means that hypothesis is true; a value 
+In statistics, we make hypothesis like two different random variable have the same mean, or have equal variance, or they follow same distribution. To test these hypothesis, test statistic is derived, and based on the test statistic, the hypothesis is rejected or accepted. When the test statistic follow a Student's t distribution, the t-test is used to test hypothesis. This test is available in the \verb"scipy.stats" library. Let us first test if the mean of random variable is same as we expected or not. \verb"st.ttest_1samp" function is used for this purpose. We will generate normally distributed random variable having mean equal to 5, and standard deviation equal to 10. And we will test if the mean of this generated random variable is 5 or not. Because we are talking 1000 number of sample, we expect that the mean will be approximately equal to 5 most of the time (but not always). The hypothesis is rejected or accepted based on the p-value. The p-value close to one means that hypothesis is true; a value 
 closer to zero means that the hypothesis is rejected. The significance level ($\alpha$) is used to define the threshold, which is often taken as 0.05 or 0.01. If the p-value is greater than this than we can accept the hypothesis. 
 \index{T-test}
 \beforeverb \begin{verbatim}
@@ -2643,7 +2643,7 @@ Fig. \ref{fig:corr} shows these variables. Out of the six variable, three have p
 \end{figure}
 \afterfig
 
-Unfortunately there is no measure to reveal the strength of relationship in case on non-linearty.  The reason for this is that we can have any form of non linear relationship which is not possible for measure to quantity. Having said that, there are some measure which work well in some case. We will explore few of them. First begin with Pearson's correlation coefficient, which provides the strength of linear relationship. \verb"st.pearsonr" function can be used to compute Pearson's correlation coefficient. This function also gives the p-value, which can be used to quantity the significance of the relationship. We are using \verb"%" 
+Unfortunately there is no measure to reveal the strength of relationship in case on non-linearity.  The reason for this is that we can have any form of non linear relationship which is not possible for measure to quantity. Having said that, there are some measure which work well in some case. We will explore few of them. First begin with Pearson's correlation coefficient, which provides the strength of linear relationship. \verb"st.pearsonr" function can be used to compute Pearson's correlation coefficient. This function also gives the p-value, which can be used to quantity the significance of the relationship. We are using \verb"%" 
 operator for formatting the output. \verb".2f" tells to print the output till second decimal places. 
 \beforeverb \begin{verbatim}
 >>> import scipy.stats as st
@@ -3041,7 +3041,7 @@ Fig. \ref{fig:X_uncern_shaded} shows the plot of uncertainty using the shaded re
 \section{Types of spatial data}
 \index{Raster}
 \index{Vector}
-Raster and vector are the two basic data structures for storing and manipulating images and graphics data in GIS (Geographic Information Systems). Raster image comes in the form of individual pixels, and each spatial location or resolution element has a pixel associated where the pixel value indicates the attribute, such as color, elevation, or an ID number. Vector data comes in the form of points and lines, that are geometrically and mathematically associated. Points are stored using the coordinates, for example, a two-dimensional point is stored as (x, y). Lines are stored as a series of point pairs, where each pair represents a straight line segment, for example, (x1, y1) and (x2, y2) indicating a line from (x1, y1) to (x2, y2).\\
+Raster and vector are the two basic data structures for storing and manipulating images and graphics data in GIS (Geographic Information Systems). Raster image comes in the form of individual pixels, and each spatial location or resolution element has a pixel associated where the pixel value indicates the attribute, such as color, elevation, or an ID number. Vector data comes in the form of points and lines, that are geometrically and mathematically associated. Points are stored using the coordinates, for example, a two-dimensional point is stored as ($x$, $y$). Lines are stored as a series of point pairs, where each pair represents a straight line segment, for example, ($x_1$, $y_1$) and ($x_2$, $y_2$) indicating a line from ($x_1$, $y_1$) to ($x_2$, $y_2$).\\
 
 We will create some raster data using some mathematical function, and then also add noise into it. We will keep both the data (with noise, and without noise) for future use. \verb"np.mgrid" is used to create gridded points. The data is plotted using \verb"plt.matshow" function, which is a simple function to visualize a two dimensional array. Fig. \ref{fig:spatial_data} shows the data without noise, data corrupted with noise is shown in Fig. \ref{fig:spatial_data_noisy}. The data without noise shows a systematic behaviour, while it is blurred in the data added with noise.
 
@@ -3103,7 +3103,7 @@ We can also generate a vector data with using some points. Fig. \ref{fig:vect} s
 \end{figure}
 \afterfig
 
-The geospatial data can be classified into two major parts. In the first part we have information about some feature, like a two dimensional array showing the spatial variation in elevation etc. In the second part, we have information about the co-ordinates of the data. A typical processing chain for geo-spatial data is given in flow chart \ref{fig:flowchart_geo}. We have the geospatial data, and we extract the feature information and co-ordinate information separately, then we process them separately, and finally after processing we again combine them. The processing for feature information could be some mathematical operation, and for co-ordinate information, it could some co-ordinate transformation etc.
+The geo-spatial data can be classified into two major parts. In the first part we have information about some feature, like a two dimensional array showing the spatial variation in elevation etc. In the second part, we have information about the co-ordinates of the data. A typical processing chain for geo-spatial data is given in flow chart \ref{fig:flowchart_geo}. We have the geospatial data, and we extract the feature information and co-ordinate information separately, then we process them separately, and finally after processing we again combine them. The processing for feature information could be some mathematical operation, and for co-ordinate information, it could some co-ordinate transformation etc.
 
 % styles for flowcharts
 \tikzstyle{decision} = [diamond, draw, text width=3cm, text badly centered, node distance=3cm, inner sep=0pt]
@@ -3142,14 +3142,14 @@ Y_{geo} = GT[3] + X_{image}*GT[4] + Y_{image}*GT[5],
 \end{eqnarray}
 where, subscript $geo$ refers to the global co-ordinates, and $image$ refers to the image co-ordinates, i.e. pixel and line number of image. The number in the square bracket ($[]$) represents the indices of the $GT$ variables. $X$ and $Y$ are co-ordinates. $GT[2]$ and $GT[4]$ represents the orientation of the image, with respect to the $X$ and $Y$ of $geo$, and becomes zero if the image is north up. $GT[1]$ represents pixel width, and $GT[5]$ represents the pixel height. $GT[0]$ and $GT[3]$ is the position of the  top left corner of the top left pixel of the raster. It should be noted that the pixel/line coordinates in the above are from (0.0,0.0) at the top left corner of the top left pixel to at the bottom right corner of the bottom right pixel. The pixel/line location of the center of the top left pixel would therefore be (0.5,0.5).\\
 
-The information related to the geo-referencing can be specified by specifying the control points. Control points should contains minimally the $GCP_{Pixel}$ (pixel number of image), $GCP_{Line}$ (line number of image), $GCP_X$ (X co-ordinate), $GCP_Y$ (Y co-ordinate), and $GCP_Z$ (Z co-ordinate). The (Pixel,Line) position is the GCP location on the raster. The (X,Y,Z) position is the associated georeferenced location with the Z often being zero. Usually polynomials are used to transform the image co-ordinate (Pixel,Line) into geo-referenced co-ordinates. \\
+The information related to the geo-referencing can be specified by specifying the control points. Control points should contains minimally the $GCP_{Pixel}$ (pixel number of image), $GCP_{Line}$ (line number of image), $GCP_X$ (X co-ordinate), $GCP_Y$ (Y co-ordinate), and $GCP_Z$ (Z co-ordinate). The (Pixel,Line) position is the GCP location on the raster. The (X,Y,Z) position is the associated geo-referenced location with the Z often being zero. Usually polynomials are used to transform the image co-ordinate (Pixel,Line) into geo-referenced co-ordinates. \\
 
 Normally a dataset will contain either an affine geotransform or GCPs. In addition to the information about how co-ordinates are related to the geo-referenced co-ordinates, the name of co-ordinate system is also assigned to the image. 
 
 \section{Writing Raster}
 \index{Gtiff}
 \index{Raster, write}
-There are various format for storing the raster data; Geotiff is the most commonly used. We will use \verb"gdal" library to read and write the raster data. Check if you have installed \verb"gdal" by issuing the command \verb"import gdal". If you get no error, then things are under control, otherwise go to \url{http://trac.osgeo.org/gdal/wiki/DownloadSource}, download and install the latest version. Let us first write the the data in GeoTIFF format. First we will write the data without noise.
+There are various format for storing the raster data; \verb"Geotiff" is the most commonly used. We will use \verb"gdal" library to read and write the raster data. Check if you have installed \verb"gdal" by issuing the command \verb"import gdal". If you get no error, then things are under control, otherwise go to \url{http://trac.osgeo.org/gdal/wiki/DownloadSource}, download and install the latest version. Let us first write the the data in GeoTIFF format. First we will write the data without noise.
 \beforeverb \begin{verbatim}
 >>> import gdal
 >>> driver = gdal.GetDriverByName('GTiff')
@@ -3161,7 +3161,7 @@ There are various format for storing the raster data; Geotiff is the most common
 >>> dataset = None
 \end{verbatim} \afterverb
 
-First we created the driver, and asked it to create GTIFF file. Other types of format can also be created. A list of the format supported by gdal, and their code for creating the driver are listed at \url{http://www.gdal.org/formats_list.html}, e.g. code for portable network graphics is PNG. Then we create the database i.e. we create the file in computer, by issuing command \verb"dirver.Create". The inputs required to \verb"Create" are name of the file, size of the data, number of band in the data, format of the data. Then we define the geoinformation by issuing the \verb"SetGeoTransform" command. And finally we write the data using the method \verb"GetRasterBand". It is good practice to close the data with defining the dataset as \verb"None". If path for the specified file name does not exist, it returns None, and will give error if other operations are performed over it. \\
+First we created the driver, and asked it to create \verb"GTIFF" file. Other types of format can also be created. A list of the format supported by \verb"gdal", and their code for creating the driver are listed at \url{http://www.gdal.org/formats_list.html}, e.g. code for portable network graphics is \verb"PNG". Then we create the database i.e. we create the file in computer, by issuing command \verb"driver.Create". The inputs required to \verb"Create" are name of the file, size of the data, number of band in the data, format of the data. Then we define the geoinformation by issuing the \verb"SetGeoTransform" command. And finally we write the data using the method \verb"GetRasterBand". It is good practice to close the data with defining the dataset as \verb"None". If path for the specified file name does not exist, it returns None, and will give error if other operations are performed over it. \\
 
 In the similar way, we can write the data corrupted with noise. 
 
@@ -3221,7 +3221,7 @@ Now, we have the basic information ready, and we can start adding the informatio
 >>> ds.Destroy()
 \end{verbatim} \afterverb
 
-We can see this shapefile in any GIS viewere. Fig. \ref{fig:location} shows the location of cities which was generated using QGIS. 
+We can see this shapefile in any GIS viewer. Fig. \ref{fig:location} shows the location of cities which was generated using QGIS. 
 
 \beforefig
 \begin{figure}[h!]
@@ -3246,7 +3246,7 @@ In this section, we will read the data that we wrote in earlier section. We will
 
 \section{Read the vector}
 \index{Vector, read}
-In this section, we will read the vector data, that we wrote earlier. First, we need to import \verb"ogr" library. Then we open data source by specifying the directory of the shapefile. Then, we use \verb"GetLayerByName" to read the shapefile by specifying the name of shpaefile without .shp extension. After this, we are printing \verb"\n" which means print a blank line. \verb"\n" represents a new line, and \verb"\t" represents the tab. Now, we are printing header information (SI., Name, Latitude, Longitude). We are using \verb".format" to format the output. The number inside \verb" '{}' " after the colon (:) represents the length of the output. The we read the feature in the shapefile one by one using the \verb"for" loop. From each feature, we extract the name using \verb"GetFieldAsString", Longitude using \verb"GetX" and  Latitude using \verb"GetY". At the end to avoid corrupting the database, we close it safely by specifying data source as \verb"None".
+In this section, we will read the vector data, that we wrote earlier. First, we need to import \verb"ogr" library. Then we open data source by specifying the directory of the \verb"shapefile". Then, we use \verb"GetLayerByName" to read the \verb"shapefile" by specifying the name of \verb"shpaefile" without \verb".shp" extension. After this, we are printing \verb"\n" which means print a blank line. \verb"\n" represents a new line, and \verb"\t" represents the tab. Now, we are printing header information (SI., Name, Latitude, Longitude). We are using \verb".format" to format the output. The number inside \verb" '{}' " after the colon (:) represents the length of the output. The we read the feature in the \verb"shapefile" one by one using the \verb"for" loop. From each feature, we extract the name using \verb"GetFieldAsString", Longitude using \verb"GetX" and  Latitude using \verb"GetY". At the end to avoid corrupting the database, we close it safely by specifying data source as \verb"None".
 \index{ogr}
 
 \beforeverb
@@ -3310,7 +3310,7 @@ We can import the \verb"medfilt2d" function from the \verb"scipy.signal" library
 \end{figure}
 \afterfig
 \index{Filter, Wiener}
-Now, we apply Wiener filter on the same dataset. We keep the same window size for Wiener filter also. After doing the filtering, we are also saving the data in tif format. This tell use, how can read some geospatial data, process the feature information (matrix in this case), and then save the feature information with the co-ordinate information. 
+Now, we apply Wiener filter on the same dataset. We keep the same window size for Wiener filter also. After doing the filtering, we are also saving the data in \verb"tif" format. This tell use, how can read some geo-spatial data, process the feature information (matrix in this case), and then save the feature information with the co-ordinate information. 
 \beforeverb \begin{verbatim}
 >>> from scipy.signal import wiener
 >>> data_wiener = wiener(data, mysize=(3,3)) # Wiener filter 
@@ -3414,7 +3414,7 @@ GDAL library provides many useful programs e.g. modifying the coordinate system,
 -rw-rw-r-- 1 tomer tomer   990 2011-12-21 17:31 auto_corr.py
 -rw-rw-r-- 1 tomer tomer   199 2012-01-20 18:38 call_external.py
 \end{verbatim} \afterverb
-Notice that we are giving the argument to the command as a separate member of the list. This can become confusing as the number of arguments increases. On the linux shell we would have simply written \verb"ls -al", why cant we do in the same way here? Lets try to write it like this.
+Notice that we are giving the argument to the command as a separate member of the list. This can become confusing as the number of arguments increases. On the \verb"linux" shell we would have simply written \verb"ls -al", why cant we do in the same way here? Lets try to write it like this.
 \beforeverb \begin{verbatim}
 >>> dir_list = call("ls -al")
 Traceback (most recent call last):
@@ -3632,7 +3632,7 @@ Some of the program of GDAL do not overwrite the existing files, or may create s
 
 
 \chapter{Plotting}
-First problem that we had during the plotting was the font size. We can change the font size by specifying the fontsize method of pyplot, but for this we need to specify everywhere the fontsize. This becomes cumbersome task, especially when you want to make many plots. There is another way to come out of this problem, by updating the \verb"prcParams" method of plt. The updating is done in the following manner. 
+First problem that we had during the plotting was the font size. We can change the font size by specifying the fontsize method of \verb"pyplot", but for this we need to specify everywhere the fontsize. This becomes cumbersome task, especially when you want to make many plots. There is another way to come out of this problem, by updating the \verb"prcParams" method of \verb"plt". The updating is done in the following manner. 
 
 \beforeverb
 \begin{verbatim}
@@ -3775,7 +3775,7 @@ We make a list of the variables, and tuple for the name of variables.
 >>> fracs = [runoff, recharge, evapotranspiration]
 \end{verbatim} \afterverb
 
-We can use explode to highlight some of the variable, in this case 'Recharge'. The amount of the explode is controlled by its parameters. The \verb"autopct" is used to define the format of the number inside pie. Fig. \ref{fig:pie} shows the pie chart. 
+We can use explode to highlight some of the variable, in this case `Recharge'. The amount of the explode is controlled by its parameters. The \verb"autopct" is used to define the format of the number inside pie. Fig. \ref{fig:pie} shows the pie chart. 
 \beforeverb \begin{verbatim}
 >>> explode=(0, 0.1, 0)
 >>> plt.pie(fracs, explode=explode, labels=labels, autopct='%1.1f%%', shadow=True)
@@ -4143,7 +4143,7 @@ Fig. \ref{fig:shared_xy} shows the resulted plot.
 \afterfig
 
 \section{Subplot}
-So far, we have used subplot having same width and height. The situation might arise, when we need to increase the size for some subplot. In the following section, we will try to plot such in such case. Firs, we will use \verb"plt.subplot", itself to make some particular subplot. 
+So far, we have used \verb"subplot" having same width and height. The situation might arise, when we need to increase the size for some \verb"subplot". In the following section, we will try to plot such in such case. Firs, we will use \verb"plt.subplot", itself to make some particular \verb"subplot". 
 
 \beforeverb \begin{verbatim}
 >>> x = np.random.rand(25)
@@ -4172,7 +4172,7 @@ Fig. \ref{fig:subplot1} shows the resulted plot. The \verb"plt.tight_layout()" i
 \end{figure}
 \afterfig
 
-Now, we will make these kinds of subplot using \verb"subplot2grid". 
+Now, we will make these kinds of \verb"subplot" using \verb"subplot2grid". 
 \beforeverb \begin{verbatim}
 >>> fig = plt.figure()
 >>> fig.subplots_adjust(wspace=0.5, hspace=0.4)
@@ -4202,14 +4202,14 @@ Fig. \ref{fig:subplot2} shows the resulted plot.
 \chapter{Input-Output}
 \section{xls}
 \index{xls}
-The \verb"data.xls" file contains the data of soil moisture estimated from the AMSR-E platform. You can open the xls file and have a look at its content. In this file we have data in two sheets, Ascending and Descending which corresponds to satellite direction. Each sheet contains the time series data for various grids point. Missing data is assigned a number of 999.9. In this section we will read data of one station for all the time, modify the data which is missing, and write in another xls file. We will be using \verb"xlsrd" library to read data from xls file, and \verb"xlwt" to write the data to xls file. The \verb"xlrd" does not read \verb"xlsx" data file, you should convert the \verb"xlsx" type of file into \verb"xls" before reading.
+The \verb"data.xls" file contains the data of soil moisture estimated from the AMSR-E platform. You can open the \verb"xls" file and have a look at its content. In this file we have data in two sheets, Ascending and Descending which corresponds to satellite direction. Each sheet contains the time series data for various grids point. Missing data is assigned a number of 999.9. In this section we will read data of one station for all the time, modify the data which is missing, and write in another \verb"xls" file. We will be using \verb"xlsrd" library to read data from \verb"xls" file, and \verb"xlwt" to write the data to \verb"xls" file. The \verb"xlrd" does not read \verb"xlsx" data file, you should convert the \verb"xlsx" type of file into \verb"xls" before reading.
 
 \beforeverb \begin{verbatim}
 >>> import xlrd
 >>> import numpy as np
 \end{verbatim} \afterverb
 
-We create book object by passing the name of xls file to \verb"xlrd.open_workbook". The sheet from which we need to read the data is specified using the \verb"sheet_by_name".  
+We create book object by passing the name of \verb"xls" file to \verb"xlrd.open_workbook". The sheet from which we need to read the data is specified using the \verb"sheet_by_name".  
 \beforeverb \begin{verbatim}
 >>> book = xlrd.open_workbook('/home/tomer/my_books/python_in_hydrology/datas/data.xls')
 >>> sheet = book.sheet_by_name('Ascending')
@@ -4245,7 +4245,7 @@ We can define all the missing data as nan.
 >>> sm
 array([ 16.6,   nan,  15.3, ...,  17.4,   nan,  18.2])
 \end{verbatim} \afterverb
-Now the soil moisture data has nan instead of 999.9 to denote missing values. We will write this soil moisture data into xls file using \verb"xlwt" library. First we open a workbook, then we add a sheet by name using \verb"add_sheet". After this we start writing entries cell by cell. Finally, we save the worksheet using \verb"book.save". 
+Now the soil moisture data has nan instead of 999.9 to denote missing values. We will write this soil moisture data into \verb"xls" file using \verb"xlwt" library. First we open a workbook, then we add a sheet by name using \verb"add_sheet". After this we start writing entries cell by cell. Finally, we save the worksheet using \verb"book.save". 
 
 \beforeverb \begin{verbatim}
 >>> import xlwt
@@ -4266,7 +4266,7 @@ Now the soil moisture data has nan instead of 999.9 to denote missing values. We
 >>> book.save('/home/tomer/my_books/python_in_hydrology/datas/data1.xls')
 \end{verbatim} \afterverb
 
-I have written a library \verb"ambhas.xls" which provides relatively easy way to read and write the xls data. The data can be read in the following way. 
+I have written a library \verb"ambhas.xls" which provides relatively easy way to read and write the \verb"xls" data. The data can be read in the following way. 
 \beforeverb \begin{verbatim}
 >>> from ambhas.xls import xlsread
 >>> fname = '/home/tomer/my_books/python_in_hydrology/datas/data.xls'
@@ -4274,7 +4274,7 @@ I have written a library \verb"ambhas.xls" which provides relatively easy way to
 >>> data = foo.get_cells('a3:a5', 'Ascending')
 \end{verbatim} \afterverb
 
-The data to \verb"xls" file is written in the following way. The data which is written should be a numpy array.
+The data to \verb"xls" file is written in the following way. The data which is written should be a \verb"numpy array".
 \beforeverb \begin{verbatim}
 >>> from ambhas.xls import xlswrite
 >>> fname = '/home/tomer/my_books/python_in_hydrology/datas/data.xls'
@@ -4328,7 +4328,7 @@ OUTPUT_TYPE = GEO
 
 END
 \end{verbatim} \afterverb
-We see that file has many parameters defined, which will be used by some tool to process input hdf images. Let us say, we have four input files, and we want to batch process them.
+We see that file has many parameters defined, which will be used by some tool to process input \verb"hdf" images. Let us say, we have four input files, and we want to batch process them.
 
 \beforeverb \begin{verbatim}
 >>> fname_input = ['input0', 'input1', 'input2', 'input3']
@@ -4357,7 +4357,7 @@ We see that file has many parameters defined, which will be used by some tool to
 
 \section{NetCDF}
 \index{NetCDF}
-In this section, we will read a NetCDF file, and write in the same format. I am using the file, \emph{rhum.2003.nc} which can be downloaded from \url{http://www.unidata.ucar.edu/software/netcdf/examples/files.html}. We will be using \verb"NetCDF" library from \verb"Scientific.IO" to read and write the NetCDF data, so lets first import it.
+In this section, we will read a \verb"NetCDF" file, and write in the same format. I am using the file, \emph{rhum.2003.nc} which can be downloaded from \url{http://www.unidata.ucar.edu/software/netcdf/examples/files.html}. We will be using \verb"NetCDF" library from \verb"Scientific.IO" to read and write the \verb"NetCDF" data, so lets first import it.
 \beforeverb \begin{verbatim}
 >>> import numpy as np
 >>> from Scientific.IO import NetCDF as nc
@@ -4388,7 +4388,7 @@ We can look at the dimension of the data.
 >>> file.dimensions
 {'lat': 73, 'time': None, 'lon': 144, 'level': 8}
 \end{verbatim} \afterverb
-We see that, the data has four dimensions: lat, time, lon, and level. The size of each dimensions is also given. Now, we can look at the variables in the data.
+We see that, the data has four dimensions: \verb"lat", \verb"time", \verb"lon", and \verb"level". The size of each dimensions is also given. Now, we can look at the variables in the data.
 
 \beforeverb \begin{verbatim}
 >>> file.variables
@@ -4624,6 +4624,7 @@ Finally, we define time, initial condition, use \verb"integrate.odeint" to solve
 \chapter{Advance statistics}
 
 \section{copula}
+\index{copula}
 Copulas are used to describe the dependence between random variables. Copula means coupling two CDFs. Let us generate two random variables; one having normal distribution, another combination of first one and uniform distribution.
 
 \beforeverb \begin{verbatim}
@@ -4636,7 +4637,7 @@ Copulas are used to describe the dependence between random variables. Copula mea
 >>> y = np.random.randn(1000)
 \end{verbatim} \afterverb
 
-First we would like to how is our data related by using scatter plot, and also we would like to see how is the distribution of $x$ and $y$. We can do this in three separate plots, or using subplots. In the present case we will trying this in one plot by specifying different axis for these 3 plots. We begin with defining the axis limits for our three plots. The input to \verb"axis" are $x$ and $y$ for the lower left corner, width and height of the plot. in the following example we are specifying axis in such as way so that plots are aligned properly. 
+First we would like to how is our data related by using scatter plot, and also we would like to see how is the distribution of $x$ and $y$. We can do this in three separate plots, or using \verb"subplot"s. In the present case we will trying this in one plot by specifying different axis for these 3 plots. We begin with defining the axis limits for our three plots. The input to \verb"axis" are $x$ and $y$ for the lower left corner, width and height of the plot. in the following example we are specifying axis in such as way so that plots are aligned properly. 
 
 \beforeverb \begin{verbatim}
 >>> plt.clf()
@@ -4709,6 +4710,7 @@ Fig. \ref{fig:copula2} shows the resulted plot.
 \afterfig
 
 \section{Multivariate distribution}
+\index{Multivariate distribution}
 So far, we have generated random variables with only univariate distribution. In this section we will be generating multivariate nominally distributed random variable by specifying the mean and covariance matrix to \verb"np.random.multivariate_normal". 
 \beforeverb \begin{verbatim}
 >>> mean = [0,5]
@@ -4728,7 +4730,7 @@ We see that generated random variable had mean and covariance close to the speci
 
 
 \section{Kriging}
-Kriging is a widely used method for interpolation in hydrology apart from other areas. The advantage of Kriging over other interpolation method e.g. linear interpolation, radial basis function and  spline etc. is that Kriging methodology provides a way to estimate the parameter of interpolation and also provides the uncertainty in the interpolated values. The Kriging methodology involves two steps: (i) estimation of variogram and fitting a theortical variogram to it, and (ii) performing the interpolation. The empirical variogram reveals many interesesting thing about the data and sampling intervals. It is worthwhile to look into these aspects. So, first we begin by generating different type of synthetic dataset to understand the variogram. The example taken in this are from the book, 'Introduction to Geostatistics' by P. K. Kitanidis. The python library used for Kriging is \verb"ambhas.krige".\\
+Kriging is a widely used method for interpolation in hydrology apart from other areas. The advantage of Kriging over other interpolation method e.g. linear interpolation, radial basis function and  spline etc. is that Kriging methodology provides a way to estimate the parameter of interpolation and also provides the uncertainty in the interpolated values. The Kriging methodology involves two steps: (i) estimation of variogram and fitting a theoretical variogram to it, and (ii) performing the interpolation. The empirical variogram reveals many interesting thing about the data and sampling intervals. It is worthwhile to look into these aspects. So, first we begin by generating different type of synthetic dataset to understand the variogram. The example taken in this are from the book, `Introduction to Geostatistics' by P. K. Kitanidis. The python library used for Kriging is \verb"ambhas.krige".\\
 
 First, we consider the case when the scale of variability is larger than the scale of sampling. Consider the variable,
 \begin{equation}
@@ -4963,7 +4965,7 @@ We remove the trend in the $z$, and then plot the variogram. The detrended data 
 \end{figure}
 \afterfig
 
-Now let us perform the Krigging on the station data to make the map of variable along with uncertainty estimated. First we estimate the empirical variogram, and then fit a theoretical variogram (spherical in this case) to the data by hit and trial. The empircial and theortical fitted variogram is shown in Fig. \ref{fig:krige_10}. 
+Now let us perform the Krigging on the station data to make the map of variable along with uncertainty estimated. First we estimate the empirical variogram, and then fit a theoretical variogram (spherical in this case) to the data by hit and trial. The empirical and theoretical fitted variogram is shown in Fig. \ref{fig:krige_10}. 
 
 \beforeverb \begin{verbatim}
 >>> x = np.array([6.8, 4.3, 5.9, 11.6, 5.5, 10.8, 8.6, 12.6, 14.7, 13.9, 
@@ -5051,7 +5053,7 @@ x_{m-adjusted} = F^{-1}_{o-c}\left(F_{m-c} \left(x_{m-p} \right) \right),
 \end{equation}
 where, subscript $m$ is for \emph{model}, $o$ is for observation, $c$ is for current, $p$ is for prediction and $f$ is the CDF. \\
 
-We will make bias correction using the \verb"bias_correction" function of the \verb"ambhas.stats" library. We begin with importing the library. Then we generate some random numbers to apply the bias corrections. We deliberately modify the mean of the modeled variable, so that the bias correction method can be compared. As we can see, the mean of the modeled prediction was 2, while the mean of observed data is approximately 0 before applying bias correction. The mean of the bias adjusted modeled prediction has become approximately 0 after applying the CDF based bias correction. \\
+We will make bias correction using the \verb"bias_correction" function of the \verb"ambhas.stats" library. We begin with importing the library. Then we generate some random numbers to apply the bias corrections. We deliberately modify the mean of the modelled variable, so that the bias correction method can be compared. As we can see, the mean of the modelled prediction was 2, while the mean of observed data is approximately 0 before applying bias correction. The mean of the bias adjusted modelled prediction has become approximately 0 after applying the CDF based bias correction. \\
 
 \beforeverb \begin{verbatim}
 >>> import numpy as np
