@@ -633,7 +633,7 @@ frequently needed in day to day hydrological life.
 <type 'complex'>
 \end{verbatim}
 \afterverb
-The variable {\tt c} represents the complex data type.
+The variable \verb"c" represents the complex data type.
 \index{Data Types! Integers}
 \index{Data Types! Float}
 \index{Data Types! Complex}
@@ -801,7 +801,7 @@ ImportError: No module named numpy
 
 This means, that \verb"numpy" is not installed in the system. You can install \verb"NumPy" by following the steps provided in the section \ref{install}. The \verb"python -c'import numpy'" is a way to run some simple code without invoking the python. This is useful when you want to do something small, quickly. This is very helpful when you want to check if some package is installed or not in your system. \\
 
-Before using any library, it should be imported into the program. The \verb"import" can be used to import the library. There are three ways to import a complete library or some functions from the library. By importing complete library.
+Before using any library, it should be imported into the program. The \verb"import" can be used to import the library. There are three ways to import a complete library or some functions from the library. By importing complete library:
 \beforeverb \begin{verbatim}
 >>> import numpy
 >>> x = [1, 2, 5, 9.0, 15]  # list containing only numbers (float or integers)
@@ -811,7 +811,7 @@ Before using any library, it should be imported into the program. The \verb"impo
 >>> type(x)
 <type 'numpy.ndarray'>
 \end{verbatim} \afterverb
-We imported the complete library \verb"numpy", and after doing so, whenever we need any function (i.e. \verb"array") from this library, we need to provide name along with the name of library (i.e. \verb"numpy.array"). The array function converts a list of integers or/and float into numpy array. Often the library name are quiet long, and it can be abbreviated using \verb"as" in the following manner. 
+We imported the complete library \verb"numpy", and after doing so, whenever we need any function (i.e. \verb"array") from this library, we need to provide name along with the name of library (i.e. \verb"numpy.array"). The array function converts a list of integers or/and float into \verb"numpy array". Often the library name are quiet long, and it can be abbreviated using \verb"as" in the following manner. 
 \beforeverb \begin{verbatim}
 >>> import numpy as np
 >>> x = np.array(x) # convert the list into numpy array
@@ -819,7 +819,7 @@ We imported the complete library \verb"numpy", and after doing so, whenever we n
 <type 'numpy.ndarray'>
 \end{verbatim} \afterverb
 
-If only few functions are needed then they can be imported by explicitly defining their name. 
+If only few functions are needed then they can be imported by explicitly defining their name:
 \beforeverb \begin{verbatim}
 >>> from numpy import array
 >>> x = array(x) # convert the list into numpy array
@@ -835,7 +835,7 @@ If all the functions are needed, and you do not want to use \verb"numpy" or \ver
 <type 'numpy.ndarray'>
 \end{verbatim} \afterverb
 
-Anything written after \verb"#" is comment for program, and Python does not execute them. Comments are useful in making your code more readable. The comments can be in full line also. A numpy array is a homogeneous multidimensional array. It can hold only integer, only float, combination of integers and float, complex numbers and strings. If combination of integers and float are specified in numpy.ndarray, then integers are treated as floats. The data type of numpy.ndarray can be checked using its attribute \verb"dtype". 
+Anything written after \verb"#" is comment for program, and Python does not execute them. Comments are useful in making your code more readable. The comments can be in full line also. A \verb"numpy array" is a homogeneous multidimensional array. It can hold only integer, only float, combination of integers and float, complex numbers and strings. If combination of integers and float are specified in \verb"numpy.ndarray", then integers are treated as floats. The data type of \verb"numpy.ndarray" can be checked using its attribute \verb"dtype". 
 \beforeverb \begin{verbatim}
 >>> import numpy as np
 >>> x = np.array([1,5,9.0,15]) # np.array can be defined directly also
@@ -862,6 +862,7 @@ Did you notice the difference between calling attributes and methods? The method
 \index{Method}
 
 As Python is object oriented programming (OOP) language, and attributes and methods are used quiet commonly. It is better to know briefly about them before jumping into Python. \verb"Attributes" represent properties of an object, and can be of any type, even the type of the object that contains it. \verb"methods" represent what an object can do. An attribute can only have a value or a state, while a method can do something or perform an action. 
+\index{OOP}
 
 \section{Choosing the name of variable}
 Then name of the variables should be meaningful, and possibly should be documented what the variable is used for. 
@@ -894,7 +895,7 @@ Traceback (most recent call last):
 NameError: name 'foo' is not defined
 \end{verbatim}
 \afterverb
-First variable name \verb"500_mangoes" gives \verb"SyntaxError", so we cant use this name as variable. The \verb"class" gives the \verb"SyntaxError" too, so it also can not be used. The \verb"np" gives some output (which means np is referring to something), so if we use this as variable name, the reference will be destroyed. The \verb"foo" gives \verb"NameError" that the variable is not defined, this makes it a valid choice for the variable name. Apart from these scenarios, one more output is possible. 
+First variable name \verb"500_mangoes" gives \verb"SyntaxError", so we cant use this name as variable. The \verb"class" gives the \verb"SyntaxError" too, so it also can not be used. The \verb"np" gives some output (which means \verb"np" is referring to something), so if we use this as variable name, the reference will be destroyed. The \verb"foo" gives \verb"NameError" that the variable is not defined, this makes it a valid choice for the variable name. Apart from these scenarios, one more output is possible. 
 \beforeverb
 \begin{verbatim}
 >>> a = 5
@@ -961,9 +962,7 @@ $-=$ & Subtract AND assignment & \verb">>> a -= b" \\
 
 
 \section{Expressions}
-
-An {\bf expression} is a combination of values, variables, and operators. A value all by itself is considered an expression, and so is
-a variable, so the following are all legal expressions (assuming that the variable {\tt x} has been assigned a value:
+An {\bf expression} is a combination of values, variables, and operators. A value all by itself is considered an expression, and so is a variable, so the following are all legal expressions (assuming that the variable \verb"x" has been assigned a value:
 
 \beforeverb
 \begin{verbatim}
@@ -1028,7 +1027,7 @@ The item in the list can be iterated by defining another list having integers, a
 \afterverb
 
 \subsection{while}
-{\tt while} statement is used, when we want to keep on executing the some code unless some condition is met or violated. Suppose, we want to print some numbers ranging from 15 to 20, we could do like this.
+\verb"while" statement is used, when we want to keep on executing the some code unless some condition is met or violated. Suppose, we want to print some numbers ranging from 15 to 20, we could do like this.
 \beforeverb
 \begin{verbatim}
 >>> n = 15 # initialize the n
@@ -1175,10 +1174,12 @@ Python has some in-built functions, some of them we have already used.
 14
 \end{verbatim}
 \afterverb
-Here, \verb"type", \verb"len", \verb"max" are in-built functions, which returns the {\tt type}, {\tt length} of the list, and {\tt maximum} value in the list respectively. 
+Here, \verb"type", \verb"len", \verb"max" are in-built functions, which returns the \verb"type", \verb" length" of the list, and \verb"maximum" value in the list respectively. 
 
 \subsection{User defines functions}
 If you do not find the function that you intent to use, you can define one. In fact, it is a good practice to define functions whenever they are needed, it increase the readability of the codes. A function definition specifies the name of a new function and the sequence of statements that execute when the function is called.
+
+\index{User defined functions}
 
 Suppose, you want to define a function which adds the 2 into the input.
 \beforeverb
@@ -1253,7 +1254,7 @@ The \verb"plt" is the given abbreviated name, which refers to the \verb"matplotl
 \chapter{Array}
 \index{Array}
 \section{Generating sequential arrays}
-Often we need vectors whose elements follow a simple order, for example a vector containing elements [10, 11, 12, 13] or [5, 10, 15, 20] or [1.0, 1.2, 1.4, 1.6, 1.8, 2.0]. We see that in these vectors, items follow some simple order, so it would be nicer if there are easy way to define these kinds of vectors. Some of the way to create these vectors are following: 
+Often we need vectors whose elements follow a simple order, for example a vector containing elements \verb"[10, 11, 12, 13]" or \verb"[5, 10, 15, 20]" or \verb"[1.0, 1.2, 1.4, 1.6, 1.8, 2.0]". We see that in these vectors, items follow some simple order, so it would be nicer if there are easy way to define these kinds of vectors. Some of the way to create these vectors are following: 
 
 \subsection{linspace}
 \index{linspace}
@@ -1337,7 +1338,7 @@ array([[  6.94573181e-310,   2.76947193e-316,   2.74957018e-316,
 \end{verbatim}
 \afterverb
 
-Additionally in \verb"zeros, ones, empty", the data type (e.g. int, float etc.) also can be defined.
+Additionally in \verb"zeros, ones, empty", the data type (e.g. \verb"int", \verb"float" etc.) also can be defined.
 \beforeverb \begin{verbatim}
 >>> foo = np.empty((2,5),int)
 >>> foo
@@ -1374,7 +1375,7 @@ array([[-0.66317015, -1.80129451,  0.56398575, -1.11912727],
 \afterverb
 
 \section{Useful attributes and methods}
-The \verb"ndarray" (array generated using numpy) provides attributes to perform commonly used task quickly. These attributes are used to quickly get  properties of ndarray. So let us first generate some vector whose elements are normally distributed random numbers, and try these attributes. Here I am using normally distributed random variable to demonstrate, but these attributed can be used with any numpy array. We are generating a 2 dimensional vector of size $5 \times 100$.
+The \verb"ndarray" (array generated using \verb"numpy") provides attributes to perform commonly used task quickly. These attributes are used to quickly get  properties of \verb"ndarray". So let us first generate some vector whose elements are normally distributed random numbers, and try these attributes. Here I am using normally distributed random variable to demonstrate, but these attributed can be used with any \verb"numpy array". We are generating a 2 dimensional vector of size $5 \times 100$.
 \beforeverb \begin{verbatim}
 >>> foo = np.random.randn(5,100)
 \end{verbatim} \afterverb
@@ -1394,7 +1395,7 @@ The \verb"size" attribute provides the total number of elements in the array. Th
 >>> foo.size
 500
 \end{verbatim} \afterverb
-The data type (i.e. float, integer etc.) is extracted using the attribute \verb"dtype".
+The data type (i.e. \verb"float", \verb"integer" etc.) is extracted using the attribute \verb"dtype".
 \beforeverb \begin{verbatim}
 >>> foo.dtype
 dtype('float64')
@@ -1404,7 +1405,7 @@ This tells us that, the variable \verb"foo" is float, and has 64 bits. The avera
 >>> foo.mean()
 -0.11128938014455608
 \end{verbatim} \afterverb
-This provides the mean of entire array (i.e. 500 elements in this case). Suppose we want to estimate the mean across some dimension say second (1) dimension, then in this case we need to provide additional parameter to \verb"mean", i.e. axis.
+This provides the mean of entire array (i.e. 500 elements in this case). Suppose we want to estimate the mean across some dimension say second (1) dimension, then in this case we need to provide additional parameter to \verb"mean", i.e. \verb"axis".
 \beforeverb \begin{verbatim}
 >>> foo.mean(axis=1)
 array([-0.07311407,  0.0705939 , -0.09218394,  0.0775191 ,  0.01026461])
@@ -1442,7 +1443,7 @@ The output of \verb"dir(foo)" is very long, and is omitted for brevity. The attr
 
 \section{Indexing}
 \index{Indexing}
-In this section, we will discuss how to refer to some elements in the numpy array. Remember that in Python first indices is 0. We shall generate some array, say some array whose elements are powered to 3 of the sequence [0,1, ..., 9].
+In this section, we will discuss how to refer to some elements in the \verb"numpy array". Remember that in Python first indices is 0. We shall generate some array, say some array whose elements are powered to 3 of the sequence \verb"[0,1, ..., 9]".
 \beforeverb \begin{verbatim}
 >>> foo = np.arange(10)**3
 >>> foo
@@ -1479,7 +1480,7 @@ We get the last elements of an array by indices \verb"-1". We can also use this 
 >>> foo[::-1]                                 # reversed a
 array([  729,   512,   343,   216,   125, -1000,    27, -1000,     1, -1000])
 \end{verbatim} \afterverb
-We can perform the calculation on entire numpy array at once. Suppose we are interested in estimating the square root of the numpy array, we can use \verb"sqrt" function of numpy library. 
+We can perform the calculation on entire \verb"numpy array" at once. Suppose we are interested in estimating the square root of the \verb"numpy array", we can use \verb"sqrt" function of \verb"numpy" library. 
 \beforeverb \begin{verbatim}
 >>> np.sqrt(foo) # compute the square root 
 array([         nan,   1.        ,          nan,   5.19615242,
@@ -1488,7 +1489,7 @@ array([         nan,   1.        ,          nan,   5.19615242,
 Warning: invalid value encountered in sqrt
 \end{verbatim} \afterverb
 
-\verb"nan" represents that the element is `Not A Number'. So when the value of element is negative the output of \verb"sqrt" become \verb"nan". The Warning issued by Python tells that there were some invalid values in the input for which \verb"sqrt" can not produce any sensible output, and it provides  warning (not errors). In reality, the square root of negative number is complex number, but because we did not define the variable as complex, numpy can not perform operations of complex numbers on this. We need library which handles complex number for such situation. 
+\verb"nan" represents that the element is `Not A Number'. So when the value of element is negative the output of \verb"sqrt" become \verb"nan". The Warning issued by Python tells that there were some invalid values in the input for which \verb"sqrt" can not produce any sensible output, and it provides  warning (not errors). In reality, the square root of negative number is complex number, but because we did not define the variable as complex, \verb"numpy" can not perform operations of complex numbers on this. We need library which handles complex number for such situation. 
 
 \section{Array Manipulation}
 \index{Array manipulation}
@@ -1582,7 +1583,6 @@ array([ 0.82866532,  0.99558838,  0.58213507,  0.48877906,  0.67700479,
         0.35975352])
 \end{verbatim}
 \afterverb
-
 
 
 \chapter{Basic applications in Hydrology}
