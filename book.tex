@@ -58,7 +58,7 @@
 
 \title{Python}
 \newcommand{\thetitle}{Python: In Hydrology}
-\newcommand{\theversion}{0.1.0}
+\newcommand{\theversion}{0.2.0}
 
 % these styles get translated in CSS for the HTML version
 \newstyle{a:link}{color:black;}
@@ -146,9 +146,9 @@ Version \theversion
 \vspace{0.5in}
 
 \vfill
-%{\Large Green Tea Press}
+{\Large Green Tea Press}
 
-%{\small Needham, Massachusetts}
+{\small Needham, Massachusetts}
 
 %\includegraphics[width=1in]{images/logo1.eps}
 
@@ -168,9 +168,9 @@ Printing history:
 
 \begin{description}
 
-\item[November 2011:] First edition of {\em Python in Hydrology}.
-\item[January 2012:] Added sections on variogram analysis, Kriging, bias correction, and calling external commands from Python. 
-\item[August 2012:] Fully edited the book.
+\item[0.0.0:] First edition of {\em Python in Hydrology} in \emph{November, 2011}.
+\item[0.1.0:] Added sections on variogram analysis, Kriging, bias correction, and calling external commands from Python in \emph{January, 2012}. 
+\item[0.2.0:] Fully edited the book in \emph{June, 2013}.
 \end{description}
 
 \vspace{0.2in}
@@ -181,20 +181,18 @@ Green Tea Press       \\
 Needham MA 02492
 \end{flushleft}
 
-Permission is granted to copy, distribute, and/or modify this document
-under the terms of the GNU Free Documentation License, Version 1.1 or
+Permission is granted to copy, distribute, and/or modify this document under the terms of the GNU Free Documentation License, Version 1.3 or
 any later version published by the Free Software Foundation; with no
 Invariant Sections, no Front-Cover Texts, and with no Back-Cover Texts. \\
 
-The GNU Free Documentation License is available from \url{www.gnu.org}
-or by writing to the Free Software Foundation, Inc., 59 Temple Place,
+Version 1.3 of the GNU Free Documentation License is given in the Appendix \ref{label_fdl}. The latest version could be obtained from  \url{www.gnu.org} or by writing to the Free Software Foundation, Inc., 59 Temple Place,
 Suite 330, Boston, MA 02111-1307, USA. \\ 
 
-The book is originally in the form \LaTeX\ source code. 
+The book is originally in the form of a \LaTeX\ source code. 
 A pdf (portable document format) or ps (post script) format can be obtained 
 by compiling this \LaTeX\ source code. The latest \LaTeX\ source code for the 
 book is available from svn repository hosted at google code 
-\url{http://www.google.code/p/python-in-hydrology/}. 
+\url{https://code.google.com/p/python-in-hydrology/}. 
 
 \vspace{0.2in}
 
@@ -225,7 +223,7 @@ Version \theversion
 \section*{History}
 
 I started using Python in July 2010. I was looking for a programming language, 
-which is open source, and is capable of combining many codes/modules/software. 
+which is open source, and is capable of combining many codes/modules/softwares. 
 I came across Python and Perl, though there might be many more options available. 
 I googled the use of Python and Perl in the field of general scientific usage, 
 hydrology, Geographic Information System (GIS), and statistics etc. 
@@ -236,7 +234,7 @@ and it is fulfilling my requirements completely. \\
 
 After using Python for two-three months, I become fond of open source, 
 and started using only open source software, I said good-bye to Windows, 
-ArcGis, and MATLAB etc. And even after one year, I did not miss them. 
+ArcGis, and MATLAB etc. And even after one year, I do not miss them. 
 I felt that I should also make a small contribution into the free world. 
 I tried to contribute in few areas, but could not go ahead because of my 
 less knowledge in those areas. After spending extensive one year with Python, 
@@ -247,11 +245,11 @@ I always have been scared of reading books,
 especially those having more than 200 pages. 
 I do not remember if I have read any book completely, 
 which had more than 200 pages. Though the list of books, 
-that I have read is very small, even for the books which had pages less than 200. 
+that I have read is very small, even for the books containing pages less than 200. 
 I do not like much of the text in the book, 
-and like to learn from examples in the book. 
-I am a student, not a professor, so does not have any idea about what students 
-like except my own feeling, which I know many of my fellow students do not like. \\
+and instead like to learn from examples in the book. 
+I am a student, not a professor, so do not have any idea about what students 
+like except my own feeling, which I know that many of my fellow students do not like. \\
 
 I hope that you will find this book helpful and enjoyable. \\
 
@@ -261,8 +259,8 @@ I hope that you will find this book helpful and enjoyable. \\
 Sat Kumar Tomer \\
 Bangalore, India\\
 
-Sat Kumar Tomer is a Phd Student in the Department of Civil Engineering at 
-Indian Institute of Science, Bangalore, India.
+Sat Kumar Tomer did PhD from the Department of Civil Engineering at 
+\textsc{Indian Institute of Science, Bangalore, India}. He is currently a post-doctoral fellow at \textsc{Centre d'Études Spatiales de la Biosphère, Toulouse, France}. 
 
 
 \section*{Acknowledgements}
@@ -273,7 +271,7 @@ I am thankful to Allen B. Downey who provided the latex source code of his books
 which helped me in formatting the book in a better way. Apart from it, 
 he has written a nice history for his book titled `Think Python: How to Think Like
 a Computer Scientist', which encouraged me for writing this book. 
-And, I \textbf{copied} many sentences from his book, mainly the basic about Python. \\
+And, I adapted many sentences from his book, mainly the basic about Python. \\
 
 I am thankful to the Free Software Foundation for developing the 
 GNU Free Documentation License. \\
@@ -305,12 +303,12 @@ welcome to drop an email at \url{satkumartomer@gmail.com}. \\
 % START THE BOOK
 \mainmatter
 
-\chapter{Getting started}
+\chapter{Getting Started}
 
 \section{Why Python?}
 Python is a simple and powerful programming language. 
 By simple I mean, that it is much more forgiving than languages like 
-C though slow also. By powerful, I mean it can glue many existing codes,  
+C, though slow also. By powerful, I mean that it can glue many existing codes,  
 which were written in C, C++, Fortran etc. easily. 
 It has a growing user community, which makes many tools easily available. 
 Python Package Index, which is a major host of the Python code, 
@@ -318,7 +316,7 @@ has more than 15,000 packages listed as of now, speaks about it popularity.
 The use of Python in hydrology community is not so fast as compared to other field, 
 but now-a-days many new hydrological packages are being developed. 
 Python provides access to a nice combination of GIS tools, Mathematics, 
-and Statistics etc., which makes it a useful language for the hydrologist. 
+and Statistics etc., which makes it a very useful language for the hydrologist. 
 Following are the major advantages of Python for the hydrologist:
 \begin{enumerate}
 \item A clear and readable syntax. \
@@ -331,7 +329,7 @@ Following are the major advantages of Python for the hydrologist:
 \index{Why Python}
 
 \section{Python Installation}
-Usually all the Linux/Unix system has basic Python installed by-default. If you are in
+Usually all the Linux/Unix system has basic Python installed by-default. If you are at
 some other platform (Windows or Mac), or for some reason your Linux/Unix do not have 
 a basic version of Python installed, you can use the below instructions to install the 
 basic version of Python depending upon on your platform.  
@@ -341,11 +339,11 @@ of the hydrological applications, the basic version of python is not enough,
 and additional packages are must. The next section will describe the installation 
 procedure for required additional packages. 
 Throughout the book, the chevron (\verb">>>") represents the Python shell, 
-and {\verb" $"} represents the Unix/Linux shell or window's command line. 
+and {\verb"$"} represents the Unix/Linux shell or window's command line. 
 The installation of Python for the various operating system is done in the 
-following ways
+following ways:
 
-\index{Install Python}
+\index{Installing Python}
 
 \subsection{Ubuntu/Debian}
 In the Ubuntu/Debian, the Python is installed by running the usual installation command, i.e.:
@@ -378,7 +376,7 @@ $ sudo pkg_add install python
 
 The Linux user might be familiar with \verb"sudo". 
 It allows user to run programs with the security privileges of root or administrator. 
-Window user may ignore \verb"sudo", as they do not need to specify this. \\
+Window user should ignore \verb"sudo", as they do not need to specify this. \\
 
 \subsection{Windows}
 For Windows users, the suitable version of Python can be downloaded 
@@ -395,7 +393,7 @@ Mac OS users also can download a suitable version of Python from
 \index{Windows}
 \index{Mac OS}
 
-\section{Install Additional Packages}
+\section{Installing Additional Packages}
 \label{install}
 Pip is a useful program to install additional packages in Python, which provides an 
 easiest way to install additional packages. 
@@ -704,7 +702,7 @@ I am in PhD
 \afterverb
 
 
-\section{Data structures}
+\section{Data Structures}
 Data structures are able to contain more than one data in it. 
 There are four built-in data structures in Python: 
 \verb"list", \verb"tuple", \verb"dictionary" and \verb"set". 
@@ -864,7 +862,7 @@ Did you notice the difference between calling attributes and methods? The method
 As Python is object oriented programming (OOP) language, and attributes and methods are used quiet commonly. It is better to know briefly about them before jumping into Python. \verb"Attributes" represent properties of an object, and can be of any type, even the type of the object that contains it. \verb"methods" represent what an object can do. An attribute can only have a value or a state, while a method can do something or perform an action. 
 \index{OOP}
 
-\section{Choosing the name of variable}
+\section{Choosing the Name of Variable}
 Then name of the variables should be meaningful, and possibly should be documented what the variable is used for. 
 
 Variable names can be arbitrarily long.  They can contain both letters and numbers, but they have to begin with a letter.
@@ -905,7 +903,7 @@ First variable name \verb"500_mangoes" gives \verb"SyntaxError", so we cant use 
 \afterverb
 This means that variable \verb"a" is defined before, now it is upto you, if you want to change its old value.
 
-\section{Operators and operands}
+\section{Operators and Operands}
 {\bf Operators} are special symbols that represent computations like addition and multiplication.  The values the operator is applied to are called {\bf operands}. Assume variable $a$ holds 2 and variable $b$ holds 5.
 
 \begin{tabular}{lll}
@@ -984,7 +982,7 @@ If you type an expression in interactive mode, the interpreter {\bf evaluates} i
 But in a script, an expression all by itself doesn't do anything!  This is a common source of confusion for beginners.
 
 
-\section{Control Flow}
+\section{Control Flows}
 If we want to do same task many times, restrict the execution of task only when some condition is met, {\bf control flow} is the way to do it. 
 
 \subsection{for}
@@ -1157,7 +1155,7 @@ The \verb"pass" statement does nothing. It can be used when a statement is requi
 \afterverb
 This is often used, when you are developing your code, and intent to put something later. If you leave without \verb"pass", Python will issue the error.
 
-\section{Function}
+\section{Functions}
 \index{Function}
 Function is a some sequence of statements that does some processing. When you define a function, you specify the name and the sequence of statements.  Later, you can call the function by name. There are many built in functions in the Python, and each library provides some functions. You can also specify your functions. When you need to do some task many times, it is better to define function to do that task, and later call the function. The thumb rule is that, whenever you feel to define one function define it.
 
@@ -1253,7 +1251,7 @@ The \verb"plt" is the given abbreviated name, which refers to the \verb"matplotl
 
 \chapter{Array}
 \index{Array}
-\section{Generating sequential arrays}
+\section{Generating Sequential Arrays}
 Often we need vectors whose elements follow a simple order, for example a vector containing elements \verb"[10, 11, 12, 13]" or \verb"[5, 10, 15, 20]" or \verb"[1.0, 1.2, 1.4, 1.6, 1.8, 2.0]". We see that in these vectors, items follow some simple order, so it would be nicer if there are easy way to define these kinds of vectors. Some of the way to create these vectors are following: 
 
 \subsection{linspace}
@@ -1374,7 +1372,7 @@ array([[-0.66317015, -1.80129451,  0.56398575, -1.11912727],
 \end{verbatim}
 \afterverb
 
-\section{Useful attributes and methods}
+\section{Useful Attributes and Methods}
 The \verb"ndarray" (array generated using \verb"numpy") provides attributes to perform commonly used task quickly. These attributes are used to quickly get  properties of \verb"ndarray". So let us first generate some vector whose elements are normally distributed random numbers, and try these attributes. Here I am using normally distributed random variable to demonstrate, but these attributed can be used with any \verb"numpy array". We are generating a 2 dimensional vector of size $5 \times 100$.
 \beforeverb \begin{verbatim}
 >>> foo = np.random.randn(5,100)
@@ -1585,7 +1583,7 @@ array([ 0.82866532,  0.99558838,  0.58213507,  0.48877906,  0.67700479,
 \afterverb
 
 
-\chapter{Basic applications in Hydrology}
+\chapter{Basic Applications in Hydrology}
 \section{Introduction}
 This chapter will provide applications of python in hydrology. Most of the problems given in this chapter are taken from the book titled ``Applied Hydrology" by Chow et al, and for detailed description of them, you should refer to the book. These examples include the equations commonly encountered in the hydrology. I have choose these problems to teach Python by using examples, and additionally in every example we will be learning new things about Python. \\
 
@@ -2027,7 +2025,7 @@ Now, we make a plot of the iterated value of $F$ to see how $F$ is getting updat
 
 Fig. \ref{fig:F} shows the variation of the $F$ over time. The $F$ is becoming almost constant after approximately 12 iterations. 
 
-\section{Surface water}
+\section{Surface Water}
 The flow depth in a rectangular channel is given by,
 \begin{equation}
 Q = \frac{1.49}{n}S_o^{1/2}\frac{(By)^{5/3}}{(B+y)^{2/3}},
@@ -2115,7 +2113,7 @@ Fig. \ref{fig:musk} shows the variation of inflow and outflow with time. The out
 \chapter{Statistics}
 When there is not a clear understanding of the physics process, or the variables required to do physical modelling are not available, then statistics plays a vital role. There are various modules available in python to deal with statistics, the most commonly used is \verb"scipy.stats". Additionally there is one more useful modules \verb"statistics", which can be downloaded from \url{http://bonsai.hgc.jp/~mdehoon/software/python/}. \verb"statistics" is not available for download using the \verb"pip", and hence you should download it using internet browser, and then install it using either \verb"pip" or \verb"python setup.py install". 
 
-\section{Empirical distributions}
+\section{Empirical Distributions}
 Most of hydrological variables are continuous, but because of our measurement capability we measure them discretely. The classification of discrete data using bins, provides mean to treat the discrete data as continuous. Visualization of the underlying distribution of data is done by plotting the Histogram.  The histogram depicts the frequency over discrete intervals (bins). So let us begin with histogram. In the following example, first we will generate some synthetic data, and then compute and plot the histogram. 
 
 \beforeverb \begin{verbatim}
@@ -2273,7 +2271,7 @@ The empirical CDF estimated using the method mentioned above results in the step
 \end{figure}
 \afterfig
 
-\section{Theoretical distributions}
+\section{Theoretical Distributions}
 Theoretical distributions are based upon mathematical formulas rather than empirical observations. There are various types of theoretical distributions, commonly used in hydrology are: Normal, Uniform, Exponential, Chi, Cauchy. The parameters of distributions are termed as location, scale, and shape parameter. The location parameter is the one, who change the location of pdf without affecting other attributes. Shape parameter is the one, who change the shape of distribution  without affecting other attributes. The parameter which stretch or shrink the distribution is called the scale parameters. 
 
 First we will generate normally distributed random variables. The input required for this are location and scale parameter, which are mean and standard deviation in case of normal distribution. We can also use \verb"np.random.randn" to generate normally distributed random variables, but \verb"scipy.stats" provides many other utilities (methods). So we shall use \verb"scipy.stats" library. 
@@ -2514,7 +2512,7 @@ We can also see the effect of the number of sample on the empirical distribution
 \end{figure}
 \afterfig
 
-\section{The t-test}
+\section{The t-Test}
 In statistics, we make hypothesis like two different random variable have the same mean, or have equal variance, or they follow same distribution. To test these hypothesis, test statistic is derived, and based on the test statistic, the hypothesis is rejected or accepted. When the test statistic follow a Student's t distribution, the t-test is used to test hypothesis. This test is available in the \verb"scipy.stats" library. Let us first test if the mean of random variable is same as we expected or not. \verb"st.ttest_1samp" function is used for this purpose. We will generate normally distributed random variable having mean equal to 5, and standard deviation equal to 10. And we will test if the mean of this generated random variable is 5 or not. Because we are talking 1000 number of sample, we expect that the mean will be approximately equal to 5 most of the time (but not always). The hypothesis is rejected or accepted based on the p-value. The p-value close to one means that hypothesis is true; a value 
 closer to zero means that the hypothesis is rejected. The significance level ($\alpha$) is used to define the threshold, which is often taken as 0.05 or 0.01. If the p-value is greater than this than we can accept the hypothesis. 
 \index{T-test}
@@ -2546,7 +2544,7 @@ In the previous example, we tested two independent sample for the mean. We can a
 0.569900697821
 \end{verbatim} \afterverb
 
-\section{KS test}
+\section{KS Test}
 \index{KS test}
 Kolmogorov–Smirnov (KS) test is a non-parametric test to compare the equality of two continuous one dimensional probability distributions. In this test, we quantify the distance (absolute difference) between distributions. These two distributions could be two different sample, or one could be sample and another one a theoretical distribution. Let us test if our generated normal random variable follow normal distribution or not. \verb"st.kstest" is the function to to perform KS test. 
 \beforeverb \begin{verbatim}
@@ -2566,7 +2564,7 @@ We get a p-value equal to 0.65, which means that our generated normally distribu
 0.0
 \end{verbatim} \afterverb
 
-\section{The chi square test}
+\section{The Chi Square test}
 \index{Chi square test}
 We can also compare distribution by comparing their PDFs. In this case we use the Chi square ($\chi^2$) test. In this test, $\chi^2$ statistics is computed first, and based on this we say if distributions are same or not. We can compare sample with the theoretical distribution, or two samples. We will take two pdfs, in which one is assumed to be observed and another one is expected. We will use the \verb"chisquare" function from \verb"scipy.stats.mstats" library. This function gives  $\chi^2$ statistics and p-value of the test. In the following example, we get a p-value close to zero, it means that these two frequency comes from different distributions.
 \beforeverb \begin{verbatim}
@@ -2581,7 +2579,7 @@ We can also compare distribution by comparing their PDFs. In this case we use th
 (21.666666666666668, 7.6522740548062336e-05)
 \end{verbatim} \afterverb
 
-\section{Measure of statistical dependence}
+\section{Measure of Statistical Dependence}
 \index{Pearson's correlation}
 \index{Spearman's correlation}
 \index{Kandall's tau}
@@ -2686,7 +2684,7 @@ Spearman's correlation coefficient is providing the similar output like one by S
 \end{verbatim} \afterverb
 This provides measure similar to that of Spearman's correlation coefficient, and is unable to reveal non-monotonic relationship that we have in fifth and sixth case. 
 
-\section{Linear regression}
+\section{Linear Regression}
 \index{Linear regression}
 Linear regression is an approach to model the relationship between two variables using linear function. We will use \verb"st.linregress" function to perform linear regression. We will first generate some synthetic data using a known linear model,
 and will also add some noise using normally distributed random variable. \verb"linregress" provides correlation, p-value, and standard error of estimate apart from model coefficients.  
@@ -2754,7 +2752,7 @@ Finally, we can plot the true line, fitted line, measurement corrupted with nois
 \end{figure}
 \afterfig
 
-\section{Polynomial regression}
+\section{Polynomial Regression}
 \index{Non-linear regression}
 We can do the polynomial regression using the \verb"np.polyfit". This provides the fitted coefficients. We can define the order of polynomial as third argument to the \verb"np.polyfit" function. First, we are generating a second degree polynomial ($y=1+2x-3x^2$),
 then we are adding noise into it. 
@@ -3038,7 +3036,7 @@ Fig. \ref{fig:X_uncern_shaded} shows the plot of uncertainty using the shaded re
 \afterfig
 
 \chapter{Spatial Data}
-\section{Types of spatial data}
+\section{Types of Spatial Data}
 \index{Raster}
 \index{Vector}
 Raster and vector are the two basic data structures for storing and manipulating images and graphics data in GIS (Geographic Information Systems). Raster image comes in the form of individual pixels, and each spatial location or resolution element has a pixel associated where the pixel value indicates the attribute, such as color, elevation, or an ID number. Vector data comes in the form of points and lines, that are geometrically and mathematically associated. Points are stored using the coordinates, for example, a two-dimensional point is stored as ($x$, $y$). Lines are stored as a series of point pairs, where each pair represents a straight line segment, for example, ($x_1$, $y_1$) and ($x_2$, $y_2$) indicating a line from ($x_1$, $y_1$) to ($x_2$, $y_2$).\\
@@ -3232,7 +3230,7 @@ We can see this shapefile in any GIS viewer. Fig. \ref{fig:location} shows the l
 \end{figure}
 \afterfig
 
-\section{Reading the raster}
+\section{Reading the Raster}
 \index{Raster, read}
 In this section, we will read the data that we wrote in earlier section. We will read the raster data that has noise in it. 
 \beforeverb \begin{verbatim}
@@ -3244,7 +3242,7 @@ In this section, we will read the data that we wrote in earlier section. We will
 >>> dataset = None
 \end{verbatim} \afterverb
 
-\section{Read the vector}
+\section{Reading the Vector}
 \index{Vector, read}
 In this section, we will read the vector data, that we wrote earlier. First, we need to import \verb"ogr" library. Then we open data source by specifying the directory of the \verb"shapefile". Then, we use \verb"GetLayerByName" to read the \verb"shapefile" by specifying the name of \verb"shpaefile" without \verb".shp" extension. After this, we are printing \verb"\n" which means print a blank line. \verb"\n" represents a new line, and \verb"\t" represents the tab. Now, we are printing header information (SI., Name, Latitude, Longitude). We are using \verb".format" to format the output. The number inside \verb" '{}' " after the colon (:) represents the length of the output. The we read the feature in the \verb"shapefile" one by one using the \verb"for" loop. From each feature, we extract the name using \verb"GetFieldAsString", Longitude using \verb"GetX" and  Latitude using \verb"GetY". At the end to avoid corrupting the database, we close it safely by specifying data source as \verb"None".
 \index{ogr}
@@ -3576,7 +3574,7 @@ Let us do all these steps at once in Python. First we will make a string which w
 \end{verbatim} \afterverb
 Some of the program of GDAL do not overwrite the existing files, or may create some funny dataset if the file exist with the same name. Hence it is better to make sure that there is no existing file for which file the new data is to be created. 
 
-\section{Unsupervised classification}
+\section{Unsupervised Classification}
 \beforeverb \begin{verbatim}
 >>> from __future__ import division
 >>> from osgeo import gdal
@@ -3652,7 +3650,7 @@ First problem that we had during the plotting was the font size. We can change t
 
 The name of the parameters are self explaining. If we want to keep the same font size for all kind of text (e.g. ticks, labels, legend etc.), we can simply update \verb"text.fontsize". It is a good practice to write this before making plots and define the value which suits you. If later you want to change font size for some attribute of plot, you can define that particular value there. We will be using these fontsizes in all plots henceforth, but will not be adding this text into each code for brevity. \\
 
-\section{Date axis}
+\section{Date Axis}
 Most of the data in hydrology is time series data. To plot such data, it is required that $x-axis$ should be time axis, and on $y-axis$ the data should be plotted. We will be using \verb"timeseries" library of \verb"scikits" package to deal with time series data, which also provides functions to plot time series data. We will generate some data at regular (daily) interval which is like having data simulated using some model, and some data at random time which is like having measurements at irregular interval. The measurement data also contains corresponding vectors for time i.e. year, month and day.
 \index{scikits.timeseries}
 
@@ -3705,7 +3703,7 @@ As measured data is not at regular frequency, we can not define it so easily. We
 \end{figure}
 \afterfig
 
-\section{Bar charts}
+\section{Bar Charts}
 \index{bar}
 Let us first create some data. We will crate two variables (rainfall and runoff) of length 5. 
 \beforeverb \begin{verbatim}
@@ -3754,7 +3752,7 @@ The \verb"bar" requires the corresponding value for $x$, and it does not calcula
 \end{figure}
 \afterfig
 
-\section{Pie charts}
+\section{Pie Charts}
 \index{Pie}
 First we generate three variables, runoff, recharge and evapotranspiration by assuming some rainfall. 
 \beforeverb \begin{verbatim}
@@ -3792,7 +3790,7 @@ We can use explode to highlight some of the variable, in this case `Recharge'. T
 \end{figure}
 \afterfig
 
-\section{2 D plots}
+\section{2 D Plots}
 The images (JPEG, TIFF, PNG etc.) comes in two formats: greyscale or RGB. \verb"plt.imshow" can be used to show both type of images. First we use \verb"imread" to read the data from figures, then we make a three dimensional array data by first creating an empty array, and then specifying the each band data in RGB (red, green blue) order. If we are reading an image having all the three bands in a single image, the \verb"imread" will provide the data as three dimensional array and can be used directly. The \verb"imshow" is used to make the 2 dimensional plot with interpolation algorithm type to change its default interpolation type. Fig. \ref{fig:contourf} shows two dimensional map generated using the \verb"imshow". 
 \beforeverb
 \begin{verbatim}
@@ -3881,7 +3879,7 @@ We will be using the band2 data to make the contours. Since the 'band2' data has
 \end{figure}
 \afterfig
 
-\section{3 D plots}
+\section{3 D Plots}
 To make three dimensional plot, we need to import \verb"Axes3D" library from the \verb"mpl_toolkits.mplot3d". The scatter or line plot in three dimension is made in the way similar to two dimension. We will generate three variables, and make the three dimensional scatter plot. Fig. \ref{fig:3dscatter} shows the three dimensional scatter plot. 
 \beforeverb \begin{verbatim}
 >>> import numpy as np
@@ -3912,7 +3910,7 @@ To make three dimensional plot, we need to import \verb"Axes3D" library from the
 \end{figure}
 \afterfig
 
-\section{Box-plot}
+\section{Box-Plot}
 \index{Box-plot}
 Box-plot is a way to graphically visualize the statistical properties of the data. It provides information about the minimum, first quartile (Q1), median (Q2), upper quartile (Q3), maximum, and outliers if present. \verb"boxplot" is used to make boxplot. Fig. \ref{fig:boxplot"} shows the box plot. 
 \beforeverb \begin{verbatim}
@@ -3933,7 +3931,7 @@ Box-plot is a way to graphically visualize the statistical properties of the dat
 \end{figure}
 \afterfig
 
-\section{Q-Q plot}
+\section{Q-Q Plot}
 \index{Q-Q plot}
 The Q-Q (quantile-quantile) plot is a graphical method of comparing two probability distributions by plotting their quantiles against each other. We will use \verb"statistics" library to calculate the quantiles. We will generate three random variable, two having same (normal) distributions, and one having different (uniform) distribution, and will compare their behaviour on the Q-Q plot. Fig. \ref{fig:q_q} shows the Q-Q plot. On the x-axis we have the quantiles for normal distribution, on y-axis we are plotting quantiles of uniform and normal distributions. We  see that when the distributions are same, they fall on 1:1 line, otherwise they depart from it. 
 \beforeverb \begin{verbatim}
@@ -3972,7 +3970,7 @@ The Q-Q (quantile-quantile) plot is a graphical method of comparing two probabil
 \end{figure}
 \afterfig
 
-\section{plotyy}
+\section{Plotyy}
 If we want to plot two variables in the same plot which have different range (minimum and maximum), then we should not plot them using same axis. If we do so, we will not be able to see the variation in one variable. Fig. \ref{fig:multi_y} shows the plot having two y axis. 
 \beforeverb
 \begin{verbatim}
@@ -4112,7 +4110,7 @@ The \verb"Basemap" library of \verb"mpl_toolkits.basemap" provides options for s
 \afterfig
 
 
-\section{Shared axis}
+\section{Shared Axis}
 Often it is required to make two or more plots having the same axis ($x$ or $y$ or both). The \verb"plt.subplots" provides an easy way to make the common (shared) axis. First, we will generate the synthetic data having different range. Then plot using the \verb"plt.subplots". The other options in \verb"plt.subplots" are similar to \verb"plt.subplot". 
 \beforeverb \begin{verbatim}
 >>> x1 = range(100)
@@ -4200,7 +4198,7 @@ Fig. \ref{fig:subplot2} shows the resulted plot.
 \afterfig
 
 \chapter{Input-Output}
-\section{xls}
+\section{Xls}
 \index{xls}
 The \verb"data.xls" file contains the data of soil moisture estimated from the AMSR-E platform. You can open the \verb"xls" file and have a look at its content. In this file we have data in two sheets, Ascending and Descending which corresponds to satellite direction. Each sheet contains the time series data for various grids point. Missing data is assigned a number of 999.9. In this section we will read data of one station for all the time, modify the data which is missing, and write in another \verb"xls" file. We will be using \verb"xlsrd" library to read data from \verb"xls" file, and \verb"xlwt" to write the data to \verb"xls" file. The \verb"xlrd" does not read \verb"xlsx" data file, you should convert the \verb"xlsx" type of file into \verb"xls" before reading.
 
@@ -4283,7 +4281,7 @@ The data to \verb"xls" file is written in the following way. The data which is w
 \end{verbatim} \afterverb
 As this library depends upon the \verb"xlrd", it also does not read \verb"xlsx" data file, and you should convert the \verb"xlsx" type of file into \verb"xls" before reading.
 
-\section{Text file}
+\section{Text File}
 \index{Text file}
 Some of the software/tools take the input form text files and then write to text files. If we want to do bath processing (process many files) using these tools, then we need to modify the input text files and extract the information from the file written by the tool. In this section we will read a file, and then change some parameter of the file, and then write it.\\
 
@@ -4621,9 +4619,9 @@ Finally, we define time, initial condition, use \verb"integrate.odeint" to solve
 \end{figure}
 \afterfig
 
-\chapter{Advance statistics}
+\chapter{Advance Statistics}
 
-\section{copula}
+\section{Copula}
 \index{copula}
 Copulas are used to describe the dependence between random variables. Copula means coupling two CDFs. Let us generate two random variables; one having normal distribution, another combination of first one and uniform distribution.
 
@@ -4709,7 +4707,7 @@ Fig. \ref{fig:copula2} shows the resulted plot.
 \end{figure}
 \afterfig
 
-\section{Multivariate distribution}
+\section{Multivariate Distribution}
 \index{Multivariate distribution}
 So far, we have generated random variables with only univariate distribution. In this section we will be generating multivariate nominally distributed random variable by specifying the mean and covariance matrix to \verb"np.random.multivariate_normal". 
 \beforeverb \begin{verbatim}
@@ -5286,6 +5284,7 @@ The random variable $w$ and $v$ are the process and measurement noise respective
 \afterfig
 
 \appendix
+\include{fdl}
 
 \chapter{Install library}
 \section{Basemap}
